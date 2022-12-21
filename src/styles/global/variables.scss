@@ -1,0 +1,20 @@
+@import "./colors.scss";
+
+@mixin fonts($color: $primary-violet, $size: 14px, $weight: 'regular', $style: normal, $lineHeight: 10px, $top: '', $bottom: '') {
+    color: $color;
+    font-size: $size;
+    font-weight: $weight;
+    font-style: $style;
+    line-height: $lineHeight;
+    margin-top: $top;
+    margin-bottom: $bottom;
+}
+
+@mixin flex-view($display:flex,$direction:row,$align:center,$justify:center,$width:'',$height:'') {
+    display: $display;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+    width: $width;
+    height: $height;
+}

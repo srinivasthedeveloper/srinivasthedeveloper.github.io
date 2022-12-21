@@ -1,6 +1,11 @@
+@import "./colors.scss";
+@import "./variables.scss";
+
 body {
   margin: 0;
   font-family: system-ui;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: $dark-bg;
+  color: $primary-violet;
 }

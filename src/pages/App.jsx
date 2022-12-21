@@ -1,7 +1,10 @@
+import ProfileCard from "components/ProfileCard";
+import styles from "./styles.module.scss";
+
 function App() {
   return (
-    <div>
-      <h1>Hai</h1>
+    <div className={styles['container']}>
+      <ProfileCard />
     </div>
   );
 }
