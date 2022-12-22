@@ -1,0 +1,18 @@
+name: Deploy on update
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run a deploy script
+        run: npm run deploy
+# https://dev.to/achukka/deploy-react-app-using-github-actions-157d

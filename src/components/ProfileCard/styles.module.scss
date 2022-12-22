@@ -6,7 +6,7 @@
     position: fixed;
     right: 0px;
     background-color: $nav-bg;
-    min-width: 200px;
+    min-width: 300px;
     max-width: 450px;
     gap: 50px;
     padding: 20px;
@@ -72,6 +72,43 @@
 
         .title {
             @include fonts($white, 22px, 500);
+            padding: 5px;
+        }
+        .title::after{
+            margin-top: 15px;
+            display: block;
+            content: '';
+            border-bottom: 3px solid $primary-violet;
+            box-shadow: 0 0 .2px $white,
+                    0 0 3px $primary-violet,
+                    0 0 0.8px $primary-violet,
+                    0 0 2.8px $primary-violet,
+                    inset 0 0 50px $primary-violet;
+            transform: scale(0);
+            transition: transform 300ms ease;
+        }
+        .title:hover::after{
+            transform: scale(1);
+        }
+        .title:hover{
+            animation: shake 350ms;
+        }
+        @keyframes shake {
+            0%{
+                transform: scale(1.2) rotate(-10deg);
+            }
+            25%{
+                transform: rotate(10deg);
+            }
+            50%{
+                transform: rotate(-5deg);
+            }
+            75%{
+                transform: rotate(5deg);
+            }
+            100%{
+                transform: scale(1) rotate(0deg);
+            }
         }
     }
 
@@ -93,6 +130,9 @@
 
 @media screen and (max-width:599px) {
     .container {
-        display: none;
+        // display: none;
+        position: relative;
+        align-self: center;
+        transition: align-self 500ms ease-in-out;
     }
 }
