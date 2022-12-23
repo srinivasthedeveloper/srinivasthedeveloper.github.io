@@ -8,4 +8,34 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: $dark-bg;
   color: $primary-violet;
+  overflow: auto;
 }
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+
+/*
+// Extra small devices (phones, 600px and down)
+@media only screen and (max-width: 600px) {...}
+
+// Small devices (portrait tablets and large phones, 600px and up)
+@media only screen and (min-width: 600px) {...}
+
+// Medium devices (landscape tablets, 768px and up)
+@media only screen and (min-width: 768px) {...}
+
+// Large devices (laptops/desktops, 992px and up)
+@media only screen and (min-width: 992px) {...}
+
+// Extra large devices (large laptops and desktops, 1200px and up)
+@media only screen and (min-width: 1200px) {...}
+
+// 320px — 480px: Mobile devices
+// 481px — 768px: iPads, Tablets
+// 769px — 1024px: Small screens, laptops
+// 1025px — 1200px: Desktops, large screens
+// 1201px and more —  Extra large screens, TV
+*/ 
