@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 function Web() {
     return (
         <div className={styles['container']}>
-            <div><Home /></div>
+            <div className={styles['sub-container']}><Home /></div>
             <ProfileCard />
         </div>
     );

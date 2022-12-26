@@ -1,6 +1,6 @@
 @import "./colors.scss";
 
-@mixin fonts($color: $primary-violet, $size: 14px, $weight: 'regular', $style: normal, $lineHeight: 10px, $top: '', $bottom: '') {
+@mixin fonts($color: $primary-violet, $size: 14px, $weight: 'regular', $style: normal, $lineHeight: initial, $top: initial, $bottom: initial) {
     color: $color;
     font-size: $size;
     font-weight: $weight;
