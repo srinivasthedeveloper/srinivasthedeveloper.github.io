@@ -44,7 +44,8 @@
                     filter: grayscale(1);
                 }
             }
-            .avatar-border:hover{
+
+            .avatar-border:hover {
                 border-color: $white;
                 box-shadow: 0 0 .2px $white,
                     0 0 .2px $white,
@@ -52,7 +53,8 @@
                     0 0 0.8px $primary-violet,
                     0 0 2.8px $primary-violet,
                     inset 0 0 25px $primary-violet;
-                .avatar{
+
+                .avatar {
                     transform: scale(1.1);
                     bottom: -50px;
                     filter: grayscale(0);
@@ -71,44 +73,64 @@
         gap: 25px;
         min-width: 250px;
 
-        .title {
-            @include fonts($white, 22px, 500);
-            padding: 5px;
-        }
-        .title::after{
-            margin-top: 15px;
-            display: block;
-            content: '';
-            border-bottom: 3px solid $primary-violet;
-            box-shadow: 0 0 .2px $white,
+        .title-container {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            .title {
+                @include fonts($white, 22px, 500);
+                padding: 5px;
+            }
+
+            .title::after {
+                margin-top: 15px;
+                display: block;
+                content: '';
+                border-bottom: 3px solid $primary-violet;
+                box-shadow: 0 0 .2px $white,
                     0 0 3px $primary-violet,
                     0 0 0.8px $primary-violet,
                     0 0 2.8px $primary-violet,
                     inset 0 0 50px $primary-violet;
-            transform: scale(0);
-            transition: transform 300ms ease;
+                transform: scale(0);
+                transition: transform 300ms ease;
+            }
+
+            .active.title::after {
+                transform: scale(1);
+            }
         }
-        .title:hover::after{
-            transform: scale(1);
-        }
-        .title:hover{
-            animation: shake 350ms;
-        }
-        @keyframes shake {
-            0%{
-                transform: scale(1.2) rotate(-10deg);
+
+        .title-container:hover {
+            .title {
+                animation: shake 350ms ease;
             }
-            25%{
-                transform: rotate(10deg);
+
+            .title::after {
+                transform: scale(1);
             }
-            50%{
-                transform: rotate(-5deg);
-            }
-            75%{
-                transform: rotate(5deg);
-            }
-            100%{
-                transform: scale(1) rotate(0deg);
+
+            @keyframes shake {
+                0% {
+                    transform: scale(1.2) rotate(-10deg);
+                }
+
+                25% {
+                    transform: rotate(10deg);
+                }
+
+                50% {
+                    transform: rotate(-5deg);
+                }
+
+                75% {
+                    transform: rotate(5deg);
+                }
+
+                100% {
+                    transform: scale(1) rotate(0deg);
+                }
             }
         }
     }

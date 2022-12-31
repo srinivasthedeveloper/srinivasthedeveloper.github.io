@@ -10,6 +10,11 @@
     text-align: center;
     padding: 20px;
     width: 100%;
+    min-height: 100vh;            /* fall-back */
+    min-height: -moz-available;
+    min-height: -webkit-fill-available;
+    min-height: fill-available;
+    scroll-snap-align: start;
 
     .header {
         font-size: 1.5rem;
@@ -77,27 +82,72 @@
         @include fonts($white, max(1.25rem, 1.25vw), 500, normal, max(30px, 2.5vw));
     }
 
-    .reach-me {
-        border: 3px solid $primary-violet;
-        padding: 8px 20px;
-        text-decoration: none;
-        @include fonts($white, max(1rem,1.2vw), 500, italic);
-        background-color: transparent;
-        border-radius: 50px;
-        box-shadow: 0 0 .2px $white,
+    .button-container{
+        display: flex;
+        align-items:center;
+        cursor: pointer;
+
+        .reach-me {
+            border: 3px solid $primary-violet;
+            padding: 8px 20px;
+            text-decoration: none;
+            @include fonts($white, max(1rem,1.2vw), 500, italic);
+            background-color: transparent;
+            border-radius: 50px;
+            box-shadow: 0 0 .2px $white,
+                0 0 3px $primary-violet,
+                0 0 0.8px $primary-violet,
+                0 0 2.8px $primary-violet,
+                inset 0 0 5px $primary-violet,
+                0 0 5px $primary-violet;
+        }
+    }
+
+    .button-container:hover{
+        .reach-me{
+            box-shadow: 0 0 .2px $white,
             0 0 3px $primary-violet,
             0 0 0.8px $primary-violet,
             0 0 2.8px $primary-violet,
-            inset 0 0 5px $primary-violet,
-            0 0 5px $primary-violet;
-    }
+            inset 0 0 50px $primary-violet;
+            transition: box-shadow 1000ms ease;
+            animation: shake 350ms ease;
+        }
+        @keyframes shake {
+            0% {
+                transform: scale(1.2) rotate(-10deg);
+            }
 
-    .reach-me:hover{
-        box-shadow: 0 0 .2px $white,
-        0 0 3px $primary-violet,
-        0 0 0.8px $primary-violet,
-        0 0 2.8px $primary-violet,
-        inset 0 0 50px $primary-violet;
-        transition: box-shadow 1000ms ease;
+            25% {
+                transform: rotate(10deg);
+            }
+
+            50% {
+                transform: rotate(-5deg);
+            }
+
+            75% {
+                transform: rotate(5deg);
+            }
+
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+        }
+    }
+}
+
+.animate-container{
+    animation: slideIn 1000ms ease;
+
+    @keyframes slideIn {
+        0%{
+            opacity: 0;
+            margin-left: -50vw;
+        }
+        100%{
+            opacity: 1;
+            margin-left: 0;
+        }
     }
 }

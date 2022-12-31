@@ -1,7 +1,16 @@
 import styles from "./styles.module.scss";
 import colorProfile from "image/profile/color.png";
+import github from "image/contact/github.svg";
+import linkedin from "image/contact/linkedin.svg";
+import whatsapp from "image/contact/whatsapp.svg";
+import gmail from "image/contact/gmail.svg";
+import instagram from "image/contact/instagram.svg";
 
-export default function ProfileCard() {
+export default function ProfileCard({
+    activeNav = "Home",
+    setActiveNav = () => { },
+    ...props
+}) {
 
     const routes = [
         'Home',
@@ -15,26 +24,31 @@ export default function ProfileCard() {
 
     const quickLinks = [
         {
-            image:'',
-            link:'',
-            title:'',
+            image: github,
+            link: 'https://github.com/srinivasthedeveloper',
+            title: 'github',
         },
         {
-            image:'',
-            link:'',
-            title:'',
+            image: linkedin,
+            link: 'https://www.linkedin.com/in/srinivasthedeveloper',
+            title: 'linkedin',
         },
         {
-            image:'',
-            link:'',
-            title:'',
+            image: gmail,
+            link: 'mailto:srinivasthedeveloper@gmail.com',
+            title: 'gmail',
         },
         {
-            image:'',
-            link:'',
-            title:'',
+            image: instagram,
+            link: 'https://www.instagram.com/srinivasthedeveloper',
+            title: 'instagram',
         },
-        
+        {
+            image: whatsapp,
+            link: 'https://wa.me/+916382589758',
+            title: 'whatsapp',
+        },
+
     ]
 
     return (
@@ -42,20 +56,35 @@ export default function ProfileCard() {
             <div className={styles['profile-container']}>
                 <div className={styles['avatar-container']}>
                     <div className={styles['avatar-border']}>
-                        <img src={colorProfile} className={styles['avatar']} alt=""/>
+                        <img src={colorProfile} className={styles['avatar']} alt="" />
                     </div>
                 </div>
                 <span className={styles['title']}>Srinivas K</span>
             </div>
 
             <div className={styles['nav-container']}>
-                {routes.map((route,index)=>(<span key={`right-nav-${index}`} className={styles['title']}>{route}</span>))}
+                {routes.map((route, index) => (
+                    <div
+                        key={`right-nav-container-${index}`}
+                        className={`${styles['title-container']}`}
+                        onClick={() => { setActiveNav(route) }}
+                    >
+                        <span
+                            className={`${styles['title']} ${route === activeNav ? styles['active'] : ''}`}
+                        >{route}</span>
+                    </div>))}
             </div>
 
             <div className={styles['contact-container']}>
-                {quickLinks.map((item,index)=>(<div key={`quick-link-${index}`}>
-                    <a href={item.link} className={styles['link']}>
-                        <img alt="" title={item.title} className={styles['image']}/>
+                {quickLinks.map((item, index) => (<div key={`quick-link-${index}`}>
+                    <a href={item.link} onClick={async(e)=>{
+                        e.preventDefault();
+                        await navigator.clipboard.writeText((item.link).replace('mailto:',''));
+                        // setTimeout(()=>{
+                            window.open(item.link,"_blank");
+                        // },500)
+                    }} rel="noreferrer" target="_blank" className={styles['link']}>
+                        <img alt="" title={item.title} src={item.image} className={styles['image']} />
                     </a>
                 </div>))}
             </div>

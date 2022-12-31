@@ -8,7 +8,14 @@
 
     .sub-container{
         display:flex;
-        width:100%
+        width:100%;
+        height: 100%;
+        flex-flow:column nowrap;
+        overflow: hidden;
+        overflow-y: auto;
+        padding: 20px;
+        scroll-behavior: smooth;
+        scroll-snap-type: y mandatory;
     }
 }
 
