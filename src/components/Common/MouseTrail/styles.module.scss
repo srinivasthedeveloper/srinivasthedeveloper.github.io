@@ -1,0 +1,19 @@
+@import '/src/styles/global/colors.scss';
+
+.container {
+    position: relative;
+
+    .circle {
+        position: absolute;
+        aspect-ratio: 1/1;
+        border: 2px solid $primary-violet;
+        border-radius: 50%;
+        width: 24px;
+        top: -48px;
+        left: -48px;
+        background-color: transparent;
+        display: none;
+        transition: all ease;
+        transition-delay: all 5000ms;
+    }
+}

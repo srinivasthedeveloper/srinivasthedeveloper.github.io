@@ -1,3 +1,4 @@
+import MouseTrail from "components/Common/MouseTrail";
 import { useEffect, useState } from "react";
 
 import Mobile from "./mobile";
@@ -18,10 +19,13 @@ function App() {
     onWindowResize();
     window.addEventListener("resize", onWindowResize);
     return () => window.removeEventListener("resize", onWindowResize);
-  })
+  },[]);
 
   return (
-    isMobielView ? <Mobile /> : <Web />
+    <>
+      <MouseTrail />
+      {isMobielView ? <Mobile /> : <Web />}
+    </>
   );
 }
 
