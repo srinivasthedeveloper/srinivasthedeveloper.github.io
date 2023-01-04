@@ -15,15 +15,15 @@ function App() {
     return setisMobielView(false);
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     onWindowResize();
     window.addEventListener("resize", onWindowResize);
     return () => window.removeEventListener("resize", onWindowResize);
-  },[]);
+  }, []);
 
   return (
     <>
-      <MouseTrail />
+      {isMobielView ? null : <MouseTrail />}
       {isMobielView ? <Mobile /> : <Web />}
     </>
   );

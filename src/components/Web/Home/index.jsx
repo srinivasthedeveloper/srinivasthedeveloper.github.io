@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import useOnScreen from "Utils/useOnScreen";
 import styles from "./styles.module.scss";
 
 const textList = [
@@ -8,10 +9,22 @@ const textList = [
 ]
 const listLength = textList.length
 
-export default function Home() {
+export default function Home({
+    activeNav="",
+    setActiveNav=()=>{}
+}) {
     const [text, setText] = useState(textList[0]);
     const [writeText, setWriteText] = useState(true);
     const [startAnimate,setAnimate] = useState(false);
+    const homeRef = useRef();
+    const isVisible = useOnScreen(homeRef);
+
+    useEffect(()=>{
+        console.log("home",isVisible,activeNav);
+        if(isVisible && activeNav!=='Home'){
+            setActiveNav("Home");
+        }
+    },[isVisible])
 
     useEffect(() => {
         let textIndex = 0;
@@ -30,9 +43,15 @@ export default function Home() {
         return () => clearInterval(modeInterval);
     }, []);
 
+    useEffect(()=>{
+        if(activeNav==='Home'){
+            homeRef.current.scrollIntoView();
+        }
+    },[activeNav]);
+
 
     return (
-        <section className={`${styles['container']} ${startAnimate?styles['animate-container']:''}`}>
+        <section ref={homeRef} className={`${styles['container']} ${startAnimate?styles['animate-container']:''}`}>
             <h1 className={styles['header']}>Hello, World..!</h1>
             <div className={styles['about-text']}>
                 <span className={`${styles['animate-text']} ${writeText ? styles['write-animate'] : styles['clear-animate']}`}>{text}</span>

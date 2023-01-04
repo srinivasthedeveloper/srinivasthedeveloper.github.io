@@ -70,6 +70,7 @@ export default function ProfileCard({
                         onClick={() => { setActiveNav(route) }}
                     >
                         <span
+                            onClick={() => { setActiveNav(route) }}
                             className={`${styles['title']} ${route === activeNav ? styles['active'] : ''}`}
                         >{route}</span>
                     </div>))}

@@ -1,0 +1,24 @@
+@import '/src/styles/global/colors.scss';
+@import '/src/styles/global/variables.scss';
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    min-height: 100vh;            /* fall-back */
+    min-height: -moz-available;
+    min-height: -webkit-fill-available;
+    min-height: fill-available;
+    scroll-snap-align: start;
+
+    .header {
+        font-size: 1.5rem;
+        @include fonts($white, max(15px, 1.5vw), 500, normal);
+        letter-spacing: .35em;
+    }
+}

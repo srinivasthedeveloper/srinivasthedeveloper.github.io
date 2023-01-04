@@ -16,6 +16,11 @@
         padding: 20px;
         scroll-behavior: smooth;
         scroll-snap-type: y mandatory;
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        scrollbar-width: none;  /* Firefox */
+        &::-webkit-scrollbar { 
+            display: none;  /* Safari and Chrome */
+        }
     }
 }
 
