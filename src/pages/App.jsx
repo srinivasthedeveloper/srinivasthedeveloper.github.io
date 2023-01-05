@@ -30,7 +30,7 @@ function App() {
         setLoaded(true);
       })
       .catch((e) => {
-        console.log("error", e)
+        setLoaded(true)
       })
   }, [])
 
