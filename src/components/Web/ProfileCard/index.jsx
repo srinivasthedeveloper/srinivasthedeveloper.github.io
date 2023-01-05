@@ -56,7 +56,7 @@ export default function ProfileCard({
             <div className={styles['profile-container']}>
                 <div className={styles['avatar-container']}>
                     <div className={styles['avatar-border']}>
-                        <img src={colorProfile} className={styles['avatar']} alt="" />
+                        <img loading="lazy" src={colorProfile} className={styles['avatar']} alt="" />
                     </div>
                 </div>
                 <span className={styles['title']}>Srinivas K</span>
@@ -70,7 +70,6 @@ export default function ProfileCard({
                         onClick={() => { setActiveNav(route) }}
                     >
                         <span
-                            onClick={() => { setActiveNav(route) }}
                             className={`${styles['title']} ${route === activeNav ? styles['active'] : ''}`}
                         >{route}</span>
                     </div>))}
@@ -85,7 +84,7 @@ export default function ProfileCard({
                             window.open(item.link,"_blank");
                         // },500)
                     }} rel="noreferrer" target="_blank" className={styles['link']}>
-                        <img alt="" title={item.title} src={item.image} className={styles['image']} />
+                        <img loading="lazy" alt="" title={item.title} src={item.image} className={styles['image']} />
                     </a>
                 </div>))}
             </div>

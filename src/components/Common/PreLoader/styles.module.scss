@@ -1,0 +1,12 @@
+@import "/src/styles/global/colors.scss";
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $dark-bg;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+}
