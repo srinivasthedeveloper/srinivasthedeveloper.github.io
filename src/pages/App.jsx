@@ -1,5 +1,7 @@
-import MouseTrail from "components/Common/MouseTrail";
+import axios from "axios";
 import { useEffect, useState } from "react";
+import MouseTrail from "components/Common/MouseTrail";
+import PreLoader from "components/Common/PreLoader";
 
 import Mobile from "./mobile";
 import Web from "./web/Index";
@@ -7,6 +9,7 @@ import Web from "./web/Index";
 function App() {
 
   const [isMobielView, setisMobielView] = useState(false);
+  const [isLoaded, setLoaded] = useState(false);
 
   const onWindowResize = () => {
     if (window.innerWidth <= 768) {
@@ -21,10 +24,22 @@ function App() {
     return () => window.removeEventListener("resize", onWindowResize);
   }, []);
 
+  useEffect(() => {
+    axios.get("/static/js/bundle.js")
+      .then(() => {
+        setLoaded(true);
+      })
+      .catch((e) => {
+        setLoaded(true)
+      })
+  }, [])
+
   return (
     <>
-      {isMobielView ? null : <MouseTrail />}
-      {isMobielView ? <Mobile /> : <Web />}
+      {isLoaded ? <>
+        {isMobielView ? null : <MouseTrail />}
+        {isMobielView ? <Mobile /> : <Web />}
+      </> : <PreLoader />}
     </>
   );
 }

@@ -20,7 +20,6 @@ export default function Home({
     const isVisible = useOnScreen(homeRef);
 
     useEffect(()=>{
-        console.log("home",isVisible,activeNav);
         if(isVisible && activeNav!=='Home'){
             setActiveNav("Home");
         }

@@ -1,0 +1,40 @@
+@import "/src/styles/global/colors.scss";
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $dark-bg;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    gap: 20px;
+
+    .ball{
+        aspect-ratio: 1;
+        width: max(25px,2vw);
+        border-radius: 50%;
+        background-color: $primary-violet;
+        animation: jump 1s infinite;
+        transform: filter ease;
+    }
+    .ball:nth-child(2){
+        animation: jump 1.2s infinite;
+    }
+    .ball:nth-child(3){
+        animation: jump 1.4s infinite;
+    }
+    @keyframes jump {
+        0%{
+            transform: translateY(0px);
+            filter: hue-rotate(0deg)
+        }45%,50%{
+            filter: hue-rotate(30deg);
+            transform: translateY(max(100px,8vh));
+        }95%,100%{
+            filter: hue-rotate(0deg);
+            transform: translateY(0px);
+        }
+    }
+}

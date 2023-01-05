@@ -11,7 +11,6 @@ export default function useOnScreen(
 
     const observer = new IntersectionObserver(
         ([entry]) => {
-            console.log(entry);
             setIntersecting(entry.isIntersecting)
         },options
     )
