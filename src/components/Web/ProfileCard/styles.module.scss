@@ -2,11 +2,10 @@
 @import "/src/styles/global/variables.scss";
 
 .container {
-    @include flex-view(flex, column, center, space-around, 30%, 100%);
+    @include flex-view(flex, column, center, space-around, 20%, 100%);
     background-color: $nav-bg;
-    min-width: 300px;
+    min-width: 250px;
     max-width: 450px;
-    height: 100%;
     gap: 50px;
     padding: 20px;
 

@@ -14,6 +14,8 @@
     .ball{
         aspect-ratio: 1;
         width: max(25px,2vw);
+        width: clamp(25px,2vw,60px);
+        //clamp is just a short hand of (min, actual size, max size) can be used for anything
         border-radius: 50%;
         background-color: $primary-violet;
         animation: jump 1s infinite;
