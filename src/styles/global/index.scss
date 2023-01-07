@@ -9,6 +9,11 @@ body {
   background-color: $dark-bg;
   color: $primary-violet;
   overflow: auto;
+
+  p{
+    margin: 0px;
+    padding: 0px;
+  }
 }
 
 html, body, #root {
