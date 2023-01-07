@@ -51,7 +51,8 @@ export default function Home({
 
     return (
         <section ref={homeRef} className={`${styles['container']} ${startAnimate?styles['animate-container']:''}`}>
-            <h1 className={styles['header']}>Hello, World..!</h1>
+            <span className={styles['header']}>Hello, World..!</span>
+            <h1 style={{display:'none'}}>srinivas the developer personal portfolio</h1>
             <div className={styles['about-text']}>
                 <span className={`${styles['animate-text']} ${writeText ? styles['write-animate'] : styles['clear-animate']}`}>{text}</span>
                 <span className={styles["blinker"]}>|</span>
@@ -61,7 +62,7 @@ export default function Home({
                 Who Codes/Developes things for fun.
             </span>
             <div className={styles['button-container']}>
-                <a href="https://github.com/srinivasthedeveloper" rel="noreferrer" target="_blank" className={styles['reach-me']}>Reach me</a>
+                <a title="github profile" href="https://github.com/srinivasthedeveloper" rel="noreferrer" target="_blank" className={styles['reach-me']}>Git Profile</a>
             </div>
         </section>
     )

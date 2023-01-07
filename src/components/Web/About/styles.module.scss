@@ -4,21 +4,71 @@
 .container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-direction: column;
     gap: 30px;
     text-align: center;
     padding: 20px;
     width: 100%;
-    min-height: 100vh;            /* fall-back */
+    min-height: 100vh;
+    /* fall-back */
     min-height: -moz-available;
     min-height: -webkit-fill-available;
     min-height: fill-available;
     scroll-snap-align: start;
 
     .header {
-        font-size: 1.5rem;
-        @include fonts($white, max(15px, 1.5vw), 500, normal);
-        letter-spacing: .35em;
+        .title {
+            font-size: 1.5rem;
+            @include fonts($white, clamp(18px, 1.8vw, 35px), 500, normal);
+            letter-spacing: clamp(5px,.35em,10px);
+
+            span{
+                color: $primary-violet;
+            }
+        }
+    }
+
+    .main{
+        display: flex;
+        padding: 0px 8vw;
+        flex-direction: column;
+        text-align: left;
+        gap: 0.5em;
+        .about-text{
+            cursor: pointer;
+            width: fit-content;
+            @include fonts($white, clamp(12px, 1.3vw, 22px), 400, normal,2em);
+
+            /* If you want to implement it in very old browser-versions */
+            -webkit-user-select: none; /* Chrome/Safari */ 
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* IE10+ */
+
+            /* The rule below is not implemented in browsers yet */
+            -o-user-select: none;
+
+            /* The rule below is implemented in most browsers by now */
+            user-select: none;
+            -webkit-tap-highlight-color:transparent;
+        }
+        .expand{
+            color: $primary-violet;
+            margin-right: 5px;
+        }
+        .highlight{
+            // color: $primary-violet;
+        }
+    }
+
+    .footer{
+        .know-more{
+            background-color: $dark-bg;
+            color: $primary-violet;
+            border: 1px solid $white;
+            padding: 10px;
+            border-radius: 50px;
+            text-decoration: none;
+        }
     }
 }

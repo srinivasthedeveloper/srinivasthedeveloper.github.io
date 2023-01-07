@@ -35,7 +35,7 @@ export default function ProfileCard({
         },
         {
             image: gmail,
-            link: 'mailto:srinivasthedeveloper@gmail.com',
+            link: 'mailto:srinivasthedeveloper@gmail.com?subject=Greetings Developer!&body=I\'ve came across your portfolio and found that interesting and I would like to have a word about, {YOUR_MESSAGE}',
             title: 'gmail',
         },
         {
@@ -56,7 +56,7 @@ export default function ProfileCard({
             <div className={styles['profile-container']}>
                 <div className={styles['avatar-container']}>
                     <div className={styles['avatar-border']}>
-                        <img loading="lazy" src={colorProfile} className={styles['avatar']} alt="" />
+                        <img loading="lazy" src={colorProfile} title="srinivasthedeveloper" className={styles['avatar']} width="170px" height="222px" alt="profile image" />
                     </div>
                 </div>
                 <span className={styles['title']}>Srinivas K</span>
@@ -77,14 +77,14 @@ export default function ProfileCard({
 
             <div className={styles['contact-container']}>
                 {quickLinks.map((item, index) => (<div key={`quick-link-${index}`}>
-                    <a href={item.link} onClick={async(e)=>{
+                    <a href={item.link} title={item.title} onClick={async(e)=>{
                         e.preventDefault();
-                        await navigator.clipboard.writeText((item.link).replace('mailto:',''));
+                        await navigator.clipboard.writeText((item.link.split('?')[0]).replace('mailto:',''));
                         // setTimeout(()=>{
                             window.open(item.link,"_blank");
                         // },500)
                     }} rel="noreferrer" target="_blank" className={styles['link']}>
-                        <img loading="lazy" alt="" title={item.title} src={item.image} className={styles['image']} />
+                        <img loading="lazy" alt={item.title} title={item.title} src={item.image} className={styles['image']} width="30px" height="30px" />
                     </a>
                 </div>))}
             </div>
