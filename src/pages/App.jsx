@@ -9,11 +9,15 @@ import Web from "./web/Index";
 function App() {
 
   const [isMobielView, setisMobielView] = useState(false);
+  const [isMouseTrailDisabled,setMouseTrailState] = useState(false);
   const [isLoaded, setLoaded] = useState(false);
 
   const onWindowResize = () => {
-    if (window.innerWidth <= 768) {
+    if ((window.innerWidth <= 768)){// navigator.userAgentData.mobile //to detect is it from mobile or web 
       return setisMobielView(true);
+    }
+    if(!isMouseTrailDisabled && navigator.userAgentData.mobile){
+      setMouseTrailState(true);
     }
     return setisMobielView(false);
   };
@@ -37,7 +41,7 @@ function App() {
   return (
     <>
       {isLoaded ? <>
-        {isMobielView ? null : <MouseTrail />}
+        {isMouseTrailDisabled ? null : <MouseTrail />}
         {isMobielView ? <Mobile /> : <Web />}
       </> : <PreLoader />}
     </>
