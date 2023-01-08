@@ -3,22 +3,55 @@
 
 .container {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    gap: 30px;
-    text-align: center;
+    gap: 1vh;
     padding: 20px;
     width: 100%;
-    min-height: 100vh;            /* fall-back */
+    min-height: 100vh;
+    /* fall-back */
     min-height: -moz-available;
     min-height: -webkit-fill-available;
     min-height: fill-available;
     scroll-snap-align: start;
 
-    .header {
-        font-size: 1.5rem;
-        @include fonts($white, max(15px, 1.5vw), 500, normal);
-        letter-spacing: .35em;
+    .sub-container {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding: 20px;
+        .header {
+            font-size: 1.5rem;
+            @include fonts($white, max(15px, 1.5vw), 500, normal);
+            letter-spacing: .35em;
+            text-align: center;
+            margin-bottom: 2vh;
+        }
+        .cards-container{
+            display: flex;
+            // flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            gap: 20px;
+            .card{
+                display: flex;
+                flex: 1;
+                height: 100%;
+                flex-flow: column wrap;
+                align-items: center;
+                justify-content: space-evenly;
+                text-align: center;
+                border: 1px solid $white;
+                border-radius: 20px;
+                padding: 10px;
+            }
+            .card:nth-child(odd){
+                padding: 40px 10px;
+            }
+            .odd{
+                border-color: $primary-violet;
+                color: $white;
+            }
+        }
     }
 }

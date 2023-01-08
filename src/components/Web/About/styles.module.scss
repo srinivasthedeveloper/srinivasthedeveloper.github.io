@@ -21,54 +21,77 @@
         .title {
             font-size: 1.5rem;
             @include fonts($white, clamp(18px, 1.8vw, 35px), 500, normal);
-            letter-spacing: clamp(5px,.35em,10px);
+            letter-spacing: clamp(5px, .35em, 10px);
 
-            span{
+            span {
                 color: $primary-violet;
             }
         }
     }
 
-    .main{
+    .main {
         display: flex;
         padding: 0px 8vw;
         flex-direction: column;
         text-align: left;
         gap: 0.5em;
-        .about-text{
+
+        .about-text {
             cursor: pointer;
             width: fit-content;
-            @include fonts($white, clamp(12px, 1.3vw, 22px), 400, normal,2em);
+            @include fonts($white, clamp(12px, 1.3vw, 22px), 400, normal, 2em);
 
-            /* If you want to implement it in very old browser-versions */
-            -webkit-user-select: none; /* Chrome/Safari */ 
-            -moz-user-select: none; /* Firefox */
-            -ms-user-select: none; /* IE10+ */
+            /* to avoid highlight on double tap or mouse drag */
+            -webkit-user-select: none;
+            /* Chrome/Safari */
+            -moz-user-select: none;
+            /* Firefox */
+            -ms-user-select: none;
+            /* IE10+ */
 
             /* The rule below is not implemented in browsers yet */
             -o-user-select: none;
 
             /* The rule below is implemented in most browsers by now */
             user-select: none;
-            -webkit-tap-highlight-color:transparent;
-        }
-        .expand{
-            color: $primary-violet;
-            margin-right: 5px;
-        }
-        .highlight{
+            -webkit-tap-highlight-color: transparent;
+
+            .expand {
+                color: $primary-violet;
+                margin-right: 5px;
+            }
+
+            .hidden-text{
+                animation: popIn 500ms forwards;
+            }
+            
+            @keyframes popIn {
+                0%{
+                    opacity: 0;
+                } 100%{
+                    opacity: 1;
+                }
+            }
+
+            // .highlight{
             // color: $primary-violet;
+            // }
         }
     }
 
-    .footer{
-        .know-more{
+    .footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        .know-more {
             background-color: $dark-bg;
-            color: $primary-violet;
-            border: 1px solid $white;
+            border: 2px solid $white;
             padding: 10px;
             border-radius: 50px;
             text-decoration: none;
+            @include fonts($primary-violet, clamp(12px, 1.3vw, 22px));
         }
     }
 }

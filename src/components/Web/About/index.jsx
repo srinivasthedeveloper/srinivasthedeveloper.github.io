@@ -33,49 +33,63 @@ export default function About({
                 <span className={`${styles['about-text']}`} onClick={() => { setActiveText(activeText === '1' ? '' : '1') }}>
                     <span className={styles['expand']}>{`${activeText === '1' ? '[-]' : ['[+]']}`}</span>
                     I'm <span className={styles['highlight']}>srinivasTheDeveloper👋</span>
-                    <span style={{ display: activeText === '1' ? "unset" : "none" }}>, sweet🍩 and socializing🍻 person, also enjoys being alone with a computer👨‍💻.<br />(used to create chat-bots and voice-assistants in boredom)</span>
+                    <span
+                        className={`${styles['hidden-text']}`}
+                        style={{ display: activeText === '1' ? "unset" : "none" }}>, sweet🍩 and socializing🍻 person, also enjoys being alone with a computer👨‍💻.<br />(used to create chat-bots and voice-assistants in boredom)</span>
                 </span>
 
                 <span className={`${styles['about-text']}`} onClick={() => { setActiveText(activeText === '2' ? '' : '2') }}>
                     <span className={styles['expand']}>{`${activeText === '2' ? '[-]' : ['[+]']}`}</span>
                     A Computerphile🤓
-                    <span style={{ display: activeText === '2' ? "unset" : "none" }}> who likes to code even 12+hrs🥳 straight when things got interesting.✨</span>
+                    <span
+                        className={`${styles['hidden-text']}`}
+                        style={{ display: activeText === '2' ? "unset" : "none" }}> who likes to code even 12+hrs🥳 straight when things got interesting.✨</span>
                 </span>
 
                 <span className={`${styles['about-text']}`} onClick={() => { setActiveText(activeText === '3' ? '' : '3') }}>
                     <span className={styles['expand']}>{`${activeText === '3' ? '[-]' : ['[+]']}`}</span>
                     Friendly Languages
-                    <span style={{ display: activeText === '3' ? "unset" : "none" }}> ⚛Js(React, Next, React-Native, Node), 🐍Python(Django)</span>
+                    <span
+                        className={`${styles['hidden-text']}`}
+                        style={{ display: activeText === '3' ? "unset" : "none" }}> ⚛Js(React, Next, React-Native, Node), 🐍Python(Django)</span>
                 </span>
 
                 <span className={`${styles['about-text']}`} onClick={() => { setActiveText(activeText === '4' ? '' : '4') }}>
                     <span className={styles['expand']}>{`${activeText === '4' ? '[-]' : ['[+]']}`}</span>
                     Languages worked on🏋️
-                    <span style={{ display: activeText === '4' ? "unset" : "none" }}>Java,C++,C...(except php😅)</span>
+                    <span
+                        className={`${styles['hidden-text']}`}
+                        style={{ display: activeText === '4' ? "unset" : "none" }}>Java,C++,C...(except php😅)</span>
                 </span>
 
                 <span className={`${styles['about-text']}`} onClick={() => { setActiveText(activeText === '5' ? '' : '5') }}>
                     <span className={styles['expand']}>{`${activeText === '5' ? '[-]' : ['[+]']}`}</span>
-                    <span style={{ display: activeText === '5' ? "unset" : "none" }}>Simple😌, Sportive🧗‍♂️ and creative🧑‍🎨 mindset are my 2nd major </span>
+                    <span
+                        className={`${styles['hidden-text']}`}
+                        style={{ display: activeText === '5' ? "unset" : "none" }}>Simple😌, Sportive🧗‍♂️ and creative🧑‍🎨 mindset are my 2nd major </span>
                     💪strength
                 </span>
 
                 <span className={`${styles['about-text']}`} onClick={() => { setActiveText(activeText === '6' ? '' : '6') }}>
                     <span className={styles['expand']}>{`${activeText === '6' ? '[-]' : ['[+]']}`}</span>
                     my weakness😱
-                    <span style={{ display: activeText === '6' ? "unset" : "none" }}> is that I easily dive🤿 deep into the current task i'm working🧘 on which is quite unhealthy when it involves sitting long time in a hard seat without a break.<br />(but don't worry😉 i'm working on some pomodoro🕓 breaks and bought a fluffy🐑 cushion for starters)</span>
+                    <span
+                        className={`${styles['hidden-text']}`}
+                        style={{ display: activeText === '6' ? "unset" : "none" }}> is that I easily dive🤿 deep into the current task i'm working🧘 on which is quite unhealthy when it involves sitting long time in a hard seat without a break.<br />(but don't worry😉 i'm working on some pomodoro🕓 breaks and bought a fluffy🐑 cushion for starters)</span>
                 </span>
 
                 <span className={`${styles['about-text']}`} onClick={() => { setActiveText(activeText === '7' ? '' : '7') }}>
                     <span className={styles['expand']}>{`${activeText === '7' ? '[-]' : ['[+]']}`}</span>My hobbies
-                    <span style={{ display: activeText === '7' ? "unset" : "none" }}> are<br />🙈watching(anime,series,tech talks)<br />🙉listening(songs,podcasts)<br />🙊singing(while 🚿ing)<br />😎reading(comics,books,blogs)<br />🤙writing/typing(crazy codes👾, typing⌨️games, 🌀storeis)</span>
+                    <span
+                        className={`${styles['hidden-text']}`}
+                        style={{ display: activeText === '7' ? "unset" : "none" }}> are<br />🙈watching(anime,series,tech talks)<br />🙉listening(songs,podcasts)<br />🙊singing(while 🚿ing)<br />😎reading(comics,books,blogs)<br />🤙writing/typing(crazy codes👾, typing⌨️games, 🌀storeis)</span>
                 </span>
                 <span className={`${styles['about-text']}`} style={{cursor:'default'}}>
                     Hope you get some overview about me🤞, feel free to reach me🤗 if you have something to say or ask🤔 I would be happy to help you🧞.
                 </span>
             </div>
             <div className={`${styles['footer']}`}>
-                <a  rel="noreferrer" target="_blank" title="Email Me" className={`${styles['know-more']}`} href={emailLink}>👉 Email me 👈</a>
+                <a  rel="noreferrer" target="_blank" title="Email Me" className={`${styles['know-more']}`} href={emailLink}>{"👉 Email me 👈"}</a>
             </div>
         </section>
     )
