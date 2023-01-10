@@ -25,6 +25,8 @@ export default function Resume({
     return (
         <section className={`${styles['container']}`} ref={resumeRef}>
             <span className={`${styles['header']}`}>Resume</span>
+            <div>
+            </div>
         </section>
     )
 }
