@@ -89,7 +89,7 @@ export default function Work({
 
     function renderCards(item,index) {
         return (
-            <div className={`${styles["card"]} ${styles[item.id%2?"odd":"even"]}`}>
+            <div className={`${styles["card"]} ${styles[item.id%2?"odd":"even"]}`} key={`work-box-${index}`}>
                 <span>{item.place}</span>
                 <span>{item.role}</span>
                 <span>{item.duration}</span>

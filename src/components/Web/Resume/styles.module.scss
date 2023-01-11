@@ -4,13 +4,13 @@
 .container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     gap: 30px;
     text-align: center;
     padding: 20px;
     width: 100%;
-    min-height: 100vh;            /* fall-back */
+    min-height: 100vh;/* fall-back */
     min-height: -moz-available;
     min-height: -webkit-fill-available;
     min-height: fill-available;
@@ -18,7 +18,16 @@
 
     .header {
         font-size: 1.5rem;
-        @include fonts($white, max(15px, 1.5vw), 500, normal);
+        @include fonts($white, max(15px, 1.5vw), 500, normal, 80px);
         letter-spacing: .35em;
+    }
+
+    .resume-container{
+        display: flex;
+        flex-grow: 1;
+        width: 100%;
+        .iframe{
+            width: 100%;
+        }
     }
 }
