@@ -4,24 +4,24 @@ import styles from "./styles.module.scss";
 import resumePdf from "assets/pdf/resume.pdf";
 
 export default function Resume({
-    activeNav="",
-    setActiveNav=()=>{},
+    activeNav = "",
+    setActiveNav = () => { },
     ...props
 }) {
     const resumeRef = useRef();
     const isVisible = useOnScreen(resumeRef);
 
-    useEffect(()=>{
-        if(isVisible && activeNav!=='Resume'){
+    useEffect(() => {
+        if (isVisible && activeNav !== 'Resume') {
             setActiveNav("Resume");
         }
-    },[isVisible])
+    }, [isVisible])
 
-    useEffect(()=>{
-        if(activeNav==='Resume'){
+    useEffect(() => {
+        if (activeNav === 'Resume') {
             resumeRef.current.scrollIntoView();
         }
-    },[activeNav])
+    }, [activeNav])
 
     return (
         <section className={`${styles['container']}`} ref={resumeRef}>
@@ -31,6 +31,14 @@ export default function Resume({
                     className={`${styles['iframe']}`}
                     src={resumePdf}
                 />
+            </div>
+            <div className={styles['button-container']}>
+                <a href={resumePdf}
+                target="_blank" rel="noreferrer"
+                title="download resume"
+                download={true}
+                className={`${styles['download-btn']}`}
+                >Download Resume</a>
             </div>
         </section>
     )
