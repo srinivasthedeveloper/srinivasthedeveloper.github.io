@@ -1,5 +1,5 @@
 import styles from "./styles.module.scss";
-import pacman from "image/preloader/pacman.svg"
+import pacman from "assets/image/preloader/pacman.svg"
 
 export default function PreLoader(){
     return(<div className={styles['container']}>

@@ -1,10 +1,10 @@
 import styles from "./styles.module.scss";
-import colorProfile from "image/profile/color.png";
-import github from "image/contact/github.svg";
-import linkedin from "image/contact/linkedin.svg";
-import whatsapp from "image/contact/whatsapp.svg";
-import gmail from "image/contact/gmail.svg";
-import instagram from "image/contact/instagram.svg";
+import colorProfile from "assets/image/profile/color.png";
+import github from "assets/image/contact/github.svg";
+import linkedin from "assets/image/contact/linkedin.svg";
+import whatsapp from "assets/image/contact/whatsapp.svg";
+import gmail from "assets/image/contact/gmail.svg";
+import instagram from "assets/image/contact/instagram.svg";
 
 export default function ProfileCard({
     activeNav = "Home",
