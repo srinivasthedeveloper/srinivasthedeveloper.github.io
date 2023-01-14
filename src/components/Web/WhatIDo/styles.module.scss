@@ -28,15 +28,20 @@
         }
         .cards-container{
             display: flex;
-            // flex-direction: column;
             align-items: center;
             justify-content: center;
-            flex: 1;
+            flex-wrap: wrap;
             gap: 20px;
+            max-height: 40vh;
+            overflow: auto;
+            -ms-overflow-style: none;  /* Internet Explorer 10+ */
+            scrollbar-width: none;  /* Firefox */
+            &::-webkit-scrollbar { 
+                display: none;  /* Safari and Chrome */
+            }
             .card{
                 display: flex;
                 flex: 1;
-                height: 100%;
                 flex-flow: column wrap;
                 align-items: center;
                 justify-content: space-evenly;
@@ -46,9 +51,11 @@
                 padding: 10px;
             }
             .card:nth-child(odd){
+                flex: 1;
                 padding: 40px 10px;
             }
             .odd{
+                flex: 1;
                 border-color: $primary-violet;
                 color: $white;
             }
