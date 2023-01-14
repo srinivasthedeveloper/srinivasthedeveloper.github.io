@@ -18,27 +18,29 @@ export default function MouseTrail() {
     useEffect(() => {
         const performAnimation = () => {
             const circleContainer = trailRef.current;
-            const listOfCircles = circleContainer.children;
-            const noOfCircles = listOfCircles.length;
+            if (circleContainer) {
+                const listOfCircles = circleContainer.children;
+                const noOfCircles = listOfCircles.length;
 
-            let x = mousePosition.left;
-            let y = mousePosition.top;
-            if (mousePosition.left + mousePosition.top > 0) {
+                let x = mousePosition.left;
+                let y = mousePosition.top;
+                if (mousePosition.left + mousePosition.top > 0) {
 
-                for (let i = 0; i < noOfCircles; i++) {
-                    listOfCircles[i].style.top = `${y + 12}px`;
-                    listOfCircles[i].style.left = `${x + 12}px`;
-                    if (listOfCircles[i].style.display !== 'block') {
-                        listOfCircles[i].style.display = `block`;
-                        listOfCircles[i].style.transform = `scale(${(noOfCircles - i) / noOfCircles})`;
-                        listOfCircles[i].style.filter = `hue-rotate(${120 / (noOfCircles - i)}deg)`;
+                    for (let i = 0; i < noOfCircles; i++) {
+                        listOfCircles[i].style.top = `${y + 12}px`;
+                        listOfCircles[i].style.left = `${x + 12}px`;
+                        if (listOfCircles[i].style.display !== 'block') {
+                            listOfCircles[i].style.display = `block`;
+                            listOfCircles[i].style.transform = `scale(${(noOfCircles - i) / noOfCircles})`;
+                            listOfCircles[i].style.filter = `hue-rotate(${120 / (noOfCircles - i)}deg)`;
+                        }
+
+                        listOfCircles[i].x = x;
+                        listOfCircles[i].y = y;
+                        const nextCircle = listOfCircles[(i + 1) % noOfCircles];
+                        x += ((nextCircle.x > 0 ? nextCircle.x : 0) - x) * 0.5;
+                        y += ((nextCircle.y > 0 ? nextCircle.y : 0) - y) * 0.5;
                     }
-
-                    listOfCircles[i].x = x;
-                    listOfCircles[i].y = y;
-                    const nextCircle = listOfCircles[(i + 1) % noOfCircles];
-                    x += ((nextCircle.x > 0 ? nextCircle.x : 0) - x) * 0.5;
-                    y += ((nextCircle.y > 0 ? nextCircle.y : 0) - y) * 0.5;
                 }
             }
         }
@@ -84,18 +86,18 @@ export default function MouseTrail() {
 
     return (
         <div className={styles['container']} ref={trailRef}>
-            <span className={styles['circle']} />
-            <span className={styles['circle']} />
-            <span className={styles['circle']} />
-            <span className={styles['circle']} />
-            <span className={styles['circle']} />
-            <span className={styles['circle']} />
-            <span className={styles['circle']} />
-            <span className={styles['circle']} />
-            <span className={styles['circle']} />
-            <span className={styles['circle']} />
-            <span className={styles['circle']} />
-            <span className={styles['circle']} />
+            <span className={styles['circle']} key={'mouse-trail-circle-1'} />
+            <span className={styles['circle']} key={'mouse-trail-circle-2'} />
+            <span className={styles['circle']} key={'mouse-trail-circle-3'} />
+            <span className={styles['circle']} key={'mouse-trail-circle-4'} />
+            <span className={styles['circle']} key={'mouse-trail-circle-5'} />
+            <span className={styles['circle']} key={'mouse-trail-circle-6'} />
+            <span className={styles['circle']} key={'mouse-trail-circle-7'} />
+            <span className={styles['circle']} key={'mouse-trail-circle-8'} />
+            <span className={styles['circle']} key={'mouse-trail-circle-9'} />
+            <span className={styles['circle']} key={'mouse-trail-circle-10'} />
+            <span className={styles['circle']} key={'mouse-trail-circle-11'} />
+            <span className={styles['circle']} key={'mouse-trail-circle-12'} />
         </div>
     )
 }

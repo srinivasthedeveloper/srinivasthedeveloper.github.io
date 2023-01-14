@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import useOnScreen from "Utils/useOnScreen";
 import styles from "./styles.module.scss";
+import resumePdf from "assets/pdf/resume.pdf";
 
 export default function Resume({
     activeNav="",
@@ -25,7 +26,11 @@ export default function Resume({
     return (
         <section className={`${styles['container']}`} ref={resumeRef}>
             <span className={`${styles['header']}`}>Resume</span>
-            <div>
+            <div className={`${styles['resume-container']}`}>
+                <iframe
+                    className={`${styles['iframe']}`}
+                    src={resumePdf}
+                />
             </div>
         </section>
     )
