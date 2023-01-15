@@ -9,10 +9,10 @@ import Web from "./web/Index";
 function App() {
 
   const [isMobielView, setisMobielView] = useState(false);
-  const [isMouseTrailDisabled,setMouseTrailState] = useState(false);
+  const [isMouseTrailDisabled, setMouseTrailState] = useState(false);
   const [isLoaded, setLoaded] = useState(false);
 
-  const isMobileOS = () =>{
+  const isMobileOS = () => {
     const mobileOs = [
       /Android/i,
       /webOS/i,
@@ -22,20 +22,21 @@ function App() {
       /Windows Phone/i,
       /BlackBerry/i,
     ];
-    return mobileOs.some((item)=>{
+    return mobileOs.some((item) => {
       return navigator.userAgent.match(item);
     });
   }
 
   const onWindowResize = () => {
-    if ((window.innerWidth <= 768)){// navigator.userAgentData.mobile //to detect is it from mobile or web 
+    if ((window.innerWidth <= 768)) {// navigator.userAgentData.mobile //to detect is it from mobile or web 
       setMouseTrailState(true);
       return setisMobielView(true);
-    }
-    if(navigator?.userAgentData?.mobile || isMobileOS()){
-      setMouseTrailState(true);
-    }else{
-      setMouseTrailState(false);
+    } else {
+      if (navigator?.userAgentData?.mobile || isMobileOS()) {
+        setMouseTrailState(true);
+      } else {
+        setMouseTrailState(false);
+      }
     }
     return setisMobielView(false);
   };
