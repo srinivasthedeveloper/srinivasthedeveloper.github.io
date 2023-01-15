@@ -29,7 +29,10 @@ export default function Resume({
             <div className={`${styles['resume-container']}`}>
                 <iframe
                     className={`${styles['iframe']}`}
-                    src={resumePdf}
+                    src={`${resumePdf}#toolbar=0&navpanes=0&scrollbar=0&view=fitH`}
+                    title="Srinivas Resume"
+                    height="100%"
+                    width="100%"
                 />
             </div>
             <div className={styles['button-container']}>
