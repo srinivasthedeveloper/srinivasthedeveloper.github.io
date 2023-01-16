@@ -10,7 +10,8 @@
     text-align: center;
     padding: 20px;
     width: 100%;
-    min-height: 100vh;            /* fall-back */
+    min-height: 100vh;
+    /* fall-back */
     min-height: -moz-available;
     min-height: -webkit-fill-available;
     min-height: fill-available;
@@ -20,5 +21,37 @@
         font-size: 1.5rem;
         @include fonts($white, max(15px, 1.5vw), 500, normal);
         letter-spacing: .35em;
+    }
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        height: 70%;
+        gap: 25px;
+        padding: 20px;
+
+        .subject {
+            height: clamp(20px, 30%, 50px);
+            @include fonts($dark-bg, max(12px, 1.2vw), 500, normal);
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .body {
+            height: 100%;
+            @include fonts($dark-bg, max(10px, 1vw), 500, normal);
+            border-radius: 10px;
+            padding: 20px 20px 20px 10px;
+        }
+
+        .submit {
+            background-color: $dark-bg;
+            border: 2px solid $white;
+            padding: 10px;
+            border-radius: 50px;
+            text-decoration: none;
+            @include fonts($primary-violet, clamp(12px, 1.3vw, 22px));
+        }
     }
 }
