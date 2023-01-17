@@ -8,6 +8,8 @@ export default function Contact({
     ...props
 }) {
     const contactRef = useRef();
+    const subjectRef = useRef();
+    const bodyRef = useRef();
     const isVisible = useOnScreen(contactRef);
 
     useEffect(() => {
@@ -24,12 +26,16 @@ export default function Contact({
 
     return (
         <section className={`${styles['container']}`} ref={contactRef}>
-            <span className={`${styles['header']}`}>Contact</span>
+            <span className={`${styles['header']}`}>Contact Me</span>
             <div className={`${styles['form-container']}`}>
-                <input className={`${styles['subject']}`} />
-                <textarea className={`${styles['body']}`} />
-                <a href="#" className={`${styles['submit']}`}>Sent Message</a>
+                <input ref={subjectRef} className={`${styles['subject']}`} placeholder="Tell me what is about" />
+                <textarea ref={bodyRef} className={`${styles['body']}`} placeholder="Here goes your message..." />
+                <a 
+                    href={`mailto:srinivasthedeveloper@gmail.com?subject=${subjectRef?.current?.value}&body=${bodyRef?.current?.value}`}
+                    className={`${styles['submit']}`}
+                >Send Message</a>
             </div>
+            <span className={`${styles['note']}`}>Note:- Either fill up your message here or in your compose mail, because the submit button will take you to your mailer application.</span>
         </section>
     )
 }
