@@ -19,12 +19,12 @@ export default function Resume({
 
     useEffect(() => {
         if (activeNav === 'Resume') {
-            resumeRef.current.scrollIntoView();
+            // resumeRef.current.scrollIntoView();
         }
     }, [activeNav])
 
     return (
-        <section className={`${styles['container']}`} ref={resumeRef}>
+        <section className={`${styles['container']}`} ref={resumeRef} id={'resume-view'}>
             <span className={`${styles['header']}`}>Resume</span>
             <div className={`${styles['resume-container']}`}>
                 <iframe

@@ -67,7 +67,10 @@ export default function ProfileCard({
                     <div
                         key={`right-nav-container-${index}`}
                         className={`${styles['title-container']}`}
-                        onClick={() => { setActiveNav(route) }}
+                        onClick={() => {
+                            document.getElementById((route.toLocaleLowerCase().replace('what i do','work'))+"-view").scrollIntoView();
+                            setActiveNav(route);
+                        }}
                     >
                         <span
                             className={`${styles['title']} ${route === activeNav ? styles['active'] : ''}`}
