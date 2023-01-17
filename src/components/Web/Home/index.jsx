@@ -44,13 +44,13 @@ export default function Home({
 
     useEffect(()=>{
         if(activeNav==='Home'){
-            homeRef.current.scrollIntoView();
+            // homeRef.current.scrollIntoView();
         }
     },[activeNav]);
 
 
     return (
-        <section ref={homeRef} className={`${styles['container']} ${startAnimate?styles['animate-container']:''}`}>
+        <section ref={homeRef} className={`${styles['container']} ${startAnimate?styles['animate-container']:''}`} id={'home-view'}>
             <span className={styles['header']}>Hello, World..!</span>
             <h1 style={{display:'none'}}>srinivas the developer personal portfolio</h1>
             <div className={styles['about-text']}>

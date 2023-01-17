@@ -20,12 +20,12 @@ export default function About({
 
     useEffect(() => {
         if (activeNav === 'About') {
-            aboutRef.current.scrollIntoView();
+            // aboutRef.current.scrollIntoView();
         }
     }, [activeNav])
 
     return (
-        <section className={`${styles['container']}`} ref={aboutRef}>
+        <section className={`${styles['container']}`} ref={aboutRef} id={'about-view'}>
             <div className={`${styles['header']}`}>
                 <h2 className={`${styles['title']}`}>Let Me <span>Introduce</span> Myself</h2>
             </div>

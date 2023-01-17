@@ -66,12 +66,12 @@ export default function Work({
 
     useEffect(() => {
         if (activeNav === 'What I Do') {
-            workRef.current.scrollIntoView();
+            // workRef.current.scrollIntoView();
         }
     }, [activeNav])
 
     return (
-        <section className={`${styles['container']}`} ref={workRef}>
+        <section className={`${styles['container']}`} ref={workRef} id={'work-view'}>
             <div className={`${styles['sub-container']}`}>
                 <h2 className={`${styles['header']}`}>Experience</h2>
                 <div className={`${styles["cards-container"]}`}>

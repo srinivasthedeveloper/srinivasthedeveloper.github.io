@@ -20,12 +20,12 @@ export default function Contact({
 
     useEffect(() => {
         if (activeNav === 'Contact') {
-            contactRef.current.scrollIntoView();
+            // contactRef.current.scrollIntoView();
         }
     }, [activeNav])
 
     return (
-        <section className={`${styles['container']}`} ref={contactRef}>
+        <section className={`${styles['container']}`} ref={contactRef} id={'contact-view'}>
             <span className={`${styles['header']}`}>Contact Me</span>
             <div className={`${styles['form-container']}`}>
                 <input ref={subjectRef} className={`${styles['subject']}`} placeholder="Tell me what is about" />
