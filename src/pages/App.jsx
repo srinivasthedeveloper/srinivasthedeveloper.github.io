@@ -5,6 +5,7 @@ import PreLoader from "components/Common/PreLoader";
 
 import Mobile from "./mobile";
 import Web from "./web/Index";
+import ClickAnimation from "components/Common/ClickAnimation";
 
 function App() {
 
@@ -61,6 +62,7 @@ function App() {
     <>
       {isLoaded ? <>
         {isMouseTrailDisabled ? null : <MouseTrail />}
+        <ClickAnimation />
         {isMobielView ? <Mobile /> : <Web />}
       </> : <PreLoader />}
     </>
