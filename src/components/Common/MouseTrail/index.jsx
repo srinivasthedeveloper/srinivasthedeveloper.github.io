@@ -52,7 +52,7 @@ export default function MouseTrail() {
     }, [mousePosition])
 
     useEffect(() => {
-        var hiderTimeout;
+        let hiderTimeout;
         const handleMouseMove = (event) => {
             setMousePosition(() => ({
                 top: event.clientY,
