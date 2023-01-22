@@ -13,44 +13,44 @@ export default function Work({
     const experience= [
         {
             place:"Company: Zolvit",
-            role:"Role: Associate Software Engineer",
-            duration:"1-May-2022 ... current",
-            description:"Currently working as a Frontend developer responsible for creating a user-friendly applications using React, Next, and React-Native frameworks",
+            role:"Role: React-Native Intern",
+            duration:"1-Jun-2021 ... 31-Apr-2022",
+            description:"During my internship have developed native mobile application for  Vakilsearch App, and several designs for Vakilsearch website.",
             id:0,
         },
         {
             place:"Company: Zolvit",
-            role:"Role: React-Native Intern",
-            duration:"1-Jun-2021 ... 31-Apr-2022 (11 Months)",
-            description:"During my internship have learned native mobile application development also have released 7+ versions of Vakilsearch App. Also developed several designs for Vakilsearch website.",
+            role:"Role: Associate Software Engineer",
+            duration:"1-May-2022 ... current",
+            description:"Currently working as a Frontend developer responsible for creating a user-friendly applications using React, Next, and React-Native frameworks",
             id:1,
         },
         {
             place:"Company: Innovation Geeks",
             role:"Role: Mentor & Teamplayer",
             duration:"2019 ... 2021",
-            description:"Obviously you would have know that i'm a corona batch student thanks to the lock-down i got lot of free time to work on my interested areas. During the period we have formed a student community named THE PASSIONATE PROGRAMMERS with like minded people and done lot of freelancing projects and ofcourse a lof of fun projects too.",
+            description:"we have formed a like minded student community to provide lot of freelancing projects and of course a lof of fun projects too.",
             id:2,
         }
     ]
 
     const education= [
         {
+            place:"School: N.Kittappa Municipal Higher Secondary School",
+            role:"Role: Student / Nss Caption / Chess Player / Stage Speaker",
+            duration:"2014 ... 2018",
+            description:"Have done my higher grades",
+            id:1,
+        },
+        {
             place:"College: Sri Eshwar College Of Engineering",
             role:"Role: Student / Mentor / President / Developer",
             duration:"2018 ... 2022",
             description:"I have learned a lot in my college days. I got inspired to do/learn more by my seniors, my fellow friends and obviously my juniors. conducted Mentoring sessions, conducted & managed club activities, done projects for college events and aminity(billing software for canteen)",
-            id:1,
-        },
-        {
-            place:"School: N.Kittappa.Municipal.Higher.Secondary.School",
-            role:"Role: Student / Nss Caption / Chess Player / Stage Speaker",
-            duration:"2014 ... 2018",
-            description:"Have done my higher grades",
             id:2,
         },
         {
-            place:"School: ",
+            place:"School: Rotary Matriculation Higher Secondary School",
             role:"Role: Student / Scout Candidate / state Speaker / Chess Player",
             duration:"2005 ... 2014",
             description:"Have completed my lower and middle grades",
@@ -59,13 +59,13 @@ export default function Work({
     ]
 
     useEffect(() => {
-        if (isVisible && activeNav !== 'What I Do') {
-            setActiveNav("What I Do");
+        if (isVisible && activeNav !== 'Work') {
+            setActiveNav("Work");
         }
     }, [isVisible])
 
     useEffect(() => {
-        if (activeNav === 'What I Do') {
+        if (activeNav === 'Work') {
             // workRef.current.scrollIntoView();
         }
     }, [activeNav])

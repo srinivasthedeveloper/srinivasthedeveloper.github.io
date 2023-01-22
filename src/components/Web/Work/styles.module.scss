@@ -19,6 +19,7 @@
         flex-direction: column;
         flex: 1;
         padding: 20px;
+        
         .header {
             font-size: 1.5rem;
             @include fonts($white, max(15px, 1.5vw), 500, normal);
@@ -27,35 +28,42 @@
             margin-bottom: 2vh;
         }
         .cards-container{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
+            // display: flex;
+            // align-items: center;
+            // justify-content: center;
+            display: grid;
+            place-items: center;
+            grid-auto-flow: column;
             gap: 20px;
-            max-height: 40vh;
-            overflow: auto;
+            min-height: 100%;
+            overflow-x: auto;
             -ms-overflow-style: none;  /* Internet Explorer 10+ */
             scrollbar-width: none;  /* Firefox */
             &::-webkit-scrollbar { 
                 display: none;  /* Safari and Chrome */
             }
             .card{
-                display: flex;
-                flex: 1;
-                flex-flow: column wrap;
-                align-items: center;
-                justify-content: space-evenly;
-                text-align: center;
+                padding: 20px;
+                gap: 20px;
                 border: 1px solid $white;
-                border-radius: 20px;
-                padding: 10px;
-            }
-            .card:nth-child(odd){
-                flex: 1;
-                padding: 40px 10px;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                min-width: 250px;
+                max-height: 250px;
+                max-width: 1fr;
+                word-break: break-word;
+                overflow-y: auto;
+                -ms-overflow-style: none;  /* Internet Explorer 10+ */
+                scrollbar-width: none;  /* Firefox */
+                &::-webkit-scrollbar { 
+                    display: none;  /* Safari and Chrome */
+                }
+                @include fonts($primary-violet,clamp(12px,1.2vw,18px))
             }
             .odd{
-                flex: 1;
+                padding: 40px 20px;
                 border-color: $primary-violet;
                 color: $white;
             }
