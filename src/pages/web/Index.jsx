@@ -3,7 +3,7 @@ import Home from "components/Web/Home";
 import About from "components/Web/About";
 import ProfileCard from "components/Web/ProfileCard";
 import styles from "./styles.module.scss";
-import Work from "components/Web/WhatIDo";
+import Work from "components/Web/Work";
 import Resume from "components/Web/Resume";
 import Contact from "components/Web/Contact";
 

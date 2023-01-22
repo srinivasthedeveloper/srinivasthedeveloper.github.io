@@ -15,7 +15,7 @@ export default function ProfileCard({
     const routes = [
         'Home',
         'About',
-        'What I Do',
+        'Work',
         'Resume',
         // 'Portfolio',
         // 'Projects',
@@ -68,7 +68,7 @@ export default function ProfileCard({
                         key={`right-nav-container-${index}`}
                         className={`${styles['title-container']}`}
                         onClick={() => {
-                            document.getElementById((route.toLocaleLowerCase().replace('what i do','work'))+"-view").scrollIntoView();
+                            document.getElementById((route.toLocaleLowerCase())+"-view").scrollIntoView();
                             setActiveNav(route);
                         }}
                     >
