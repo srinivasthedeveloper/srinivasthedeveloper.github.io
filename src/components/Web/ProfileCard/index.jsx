@@ -56,7 +56,7 @@ export default function ProfileCard({
             <div className={styles['profile-container']}>
                 <div className={styles['avatar-container']}>
                     <div className={styles['avatar-border']}>
-                        <img loading="lazy" src={colorProfile} title="srinivasthedeveloper" className={styles['avatar']} width="170px" height="222px" alt="profile image" />
+                        <img loading="lazy" src={colorProfile} title="srinivasthedeveloper" className={styles['avatar']} width="170px" height="222px" alt="profile" />
                     </div>
                 </div>
                 <span className={styles['title']}>Srinivas K</span>

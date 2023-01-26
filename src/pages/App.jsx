@@ -1,11 +1,24 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import ReactGA from "react-ga4";
+
 import MouseTrail from "components/Common/MouseTrail";
 import PreLoader from "components/Common/PreLoader";
 
 import Mobile from "./mobile";
 import Web from "./web/Index";
 import ClickAnimation from "components/Common/ClickAnimation";
+
+ReactGA.initialize([
+  {
+    trackingId: "G-S07E5C4KTM",
+    gaOptions: {
+      userId: 'test'
+    }, // optional
+    gtagOptions: {}, // optional
+  }
+]);
+
 
 function App() {
 
@@ -44,6 +57,10 @@ function App() {
 
   useEffect(() => {
     onWindowResize();
+    // ReactGA.event({
+    //   category: 'Tester',
+    //   action: 'Webpage loaded test'
+    // });
     window.addEventListener("resize", onWindowResize);
     return () => window.removeEventListener("resize", onWindowResize);
   }, []);
