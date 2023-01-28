@@ -2,7 +2,7 @@
 @import '/src/styles/global/variables.scss';
 
 .container{
-    position: fixed;
+    // position: fixed;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -12,22 +12,66 @@
     bottom: 0;
     width: 100%;
     box-shadow: 1px -2px 5px 1px #fff2;
-}
 
-.item-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
+    .item-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
 
-    img{
-        aspect-ratio: 1;
-        width: clamp(20px,4vw,40px);
-        object-fit: contain;
+        &:hover{
+            img{
+                animation: spin 800ms ease;
+            }
+            span{
+                animation: kick 300ms ease;
+            }
+        }
+
+        @keyframes spin {
+            0%{
+                transform: translate(0,0) rotate(0deg);
+            } 10%{
+                transform: translate(0px,-10px) rotate(0deg);
+            } 90%{
+                transform: translate(0px,0px) rotate(360deg);
+            } 
+            100%{
+                transform: translate(0,0) rotate(360deg);
+            }
+        }
+
+        @keyframes kick {
+            0%{
+                transform: translate(0,0);
+            } 30%{
+                transform: translate(0px,-10px);
+            } 70%{
+                transform: translate(0px,10px);
+            } 100%{
+                transform: translate(0,0);
+            }
+        }
+
+    
+        img{
+            aspect-ratio: 1;
+            width: clamp(20px,4vw,40px);
+            object-fit: contain;
+        }
+    
+        span{
+            @include fonts($primary-violet,clamp(12px,3vw,18px),400);
+        }
     }
 
-    span{
-        @include fonts($primary-violet,clamp(12px,3vw,18px),400);
+    .active-nav, .item-container::after{
+        border: none;
+        border-bottom: 2px solid $white;
+        padding-bottom: 5px;
+        box-shadow: 0 5px 5px -4px $white;
+        cursor: default;
     }
 }
 
