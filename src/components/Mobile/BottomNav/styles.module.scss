@@ -1,0 +1,40 @@
+@import '/src/styles/global/colors.scss';
+@import '/src/styles/global/variables.scss';
+
+.container{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: none;
+    height: clamp(30px,5vh,60px);
+    padding: 20px;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 1px -2px 5px 1px #fff2;
+}
+
+.item-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+    img{
+        aspect-ratio: 1;
+        width: clamp(20px,4vw,40px);
+        object-fit: contain;
+    }
+
+    span{
+        @include fonts($primary-violet,clamp(12px,3vw,18px),400);
+    }
+}
+
+@media screen and (max-width:300px) {
+    .item-container{
+        span{
+            display: none;
+        }
+    }
+}

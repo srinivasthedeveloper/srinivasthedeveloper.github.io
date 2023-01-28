@@ -1,5 +1,6 @@
+import BottomNav from "components/Mobile/BottomNav";
 import { useState } from "react";
-import ProfileCard from "components/Web/ProfileCard";
+// import ProfileCard from "components/Web/ProfileCard";
 import styles from "./styles.module.scss";
 
 function Mobile() {
@@ -8,7 +9,8 @@ function Mobile() {
 
   return (
     <div className={styles['container']}>
-      <ProfileCard activeNav={activeNav} setActiveNav={setActiveNav}/>
+      <BottomNav />
+      {/* <ProfileCard activeNav={activeNav} setActiveNav={setActiveNav}/> */}
     </div>
   );
 }
