@@ -1,0 +1,17 @@
+@import "/src/styles/global/colors.scss";
+@import "/src/styles/global/variables.scss";
+
+.contact-container {
+    @include flex-view(flex, row, center, space-evenly, 100%);
+    gap: 15px;
+
+    .link {
+        .image {
+            width: 30px;
+            aspect-ratio: 1;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+        }
+    }
+}

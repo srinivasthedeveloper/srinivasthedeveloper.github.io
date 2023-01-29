@@ -22,62 +22,6 @@
         letter-spacing: .35em;
     }
 
-    .about-text {
-        font-size: 25px;
-        @include fonts($primary-violet, max(25px, 3vw), 500, italic, initial, 15px);
-        text-align: center;
-        display: flex;
-
-        .animate-text {
-            text-overflow: clip;
-            white-space: nowrap;
-            overflow: hidden;
-            display: flex;
-        }
-
-        .write-animate {
-            animation: writeAnimation 3000ms normal forwards ease;
-        }
-
-        .clear-animate {
-            animation: clearAnimation 3000ms normal forwards ease;
-        }
-
-        @keyframes writeAnimation {
-            0% {
-                width: 0%;
-            }
-
-            100% {
-                width: 100%;
-            }
-        }
-
-        @keyframes clearAnimation {
-            0% {
-                width: 100%;
-            }
-
-            100% {
-                width: 0%;
-            }
-        }
-
-        .blinker {
-            animation: blinkAnimate 1000ms infinite;
-        }
-
-        @keyframes blinkAnimate {
-            0% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-    }
-
     .brief {
         @include fonts($white, max(1.25rem, 1.25vw), 500, normal, max(30px, 2.5vw));
     }
