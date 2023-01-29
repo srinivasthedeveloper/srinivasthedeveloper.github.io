@@ -19,9 +19,7 @@ ReactGA.initialize([
   }
 ]);
 
-
 function App() {
-
   const [isMobielView, setisMobielView] = useState(false);
   const [isMouseTrailDisabled, setMouseTrailState] = useState(false);
   const [isLoaded, setLoaded] = useState(false);
@@ -74,6 +72,20 @@ function App() {
         setLoaded(true)
       })
   }, [])
+
+  useEffect(()=>{
+
+    function onPageLeave(e){
+      console.log("pageleave",e,document.hidden);
+      if(document.hidden){
+        document.title="Come Back :("
+      } else {
+        document.title = "Srinivas The Developer Personal Portfolio";
+      }
+    }
+    window.addEventListener('visibilitychange',onPageLeave);
+    return ()=> window.removeEventListener('visibilitychange',onPageLeave)
+  })
 
   return (
     <>
