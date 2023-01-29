@@ -4,8 +4,8 @@ import styles from "./styles.module.scss";
 
 const textList = [
     `This is Srinivas K 👋`,
-    `a Software Developer🧑‍💻`,
-    `who Creates 🕸️ & 📱 apps.`,
+    `I'm a Software Developer🧑‍💻`,
+    `I Creates 🕸️ & 📱 apps.`,
 ]
 const listLength = textList.length
 

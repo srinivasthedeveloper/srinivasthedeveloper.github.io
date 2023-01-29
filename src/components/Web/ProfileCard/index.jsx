@@ -5,6 +5,7 @@ import linkedin from "assets/image/contact/linkedin.svg";
 import whatsapp from "assets/image/contact/whatsapp.svg";
 import gmail from "assets/image/contact/gmail.svg";
 import instagram from "assets/image/contact/instagram.svg";
+import ProfileAvatar from "components/Common/ProfileAvatar";
 
 export default function ProfileCard({
     activeNav = "Home",
@@ -53,15 +54,8 @@ export default function ProfileCard({
 
     return (
         <div className={styles['container']}>
-            <div className={styles['profile-container']}>
-                <div className={styles['avatar-container']}>
-                    <div className={styles['avatar-border']}>
-                        <img loading="lazy" src={colorProfile} title="srinivasthedeveloper" className={styles['avatar']} width="170px" height="222px" alt="profile" />
-                    </div>
-                </div>
-                <span className={styles['title']}>Srinivas K</span>
-            </div>
-
+            <ProfileAvatar />
+            
             <div className={styles['nav-container']}>
                 {routes.map((route, index) => (
                     <div

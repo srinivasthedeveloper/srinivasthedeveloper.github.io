@@ -17,7 +17,7 @@
         aspect-ratio: 1;
         border-radius: 50%;
         position: absolute;
-        animation: grow 1s ease forwards;
+        animation: grow 350ms ease forwards;
         opacity: 0;
     }
 
@@ -29,13 +29,13 @@
         position: absolute;
         top: 15px;
         left: 15px;
-        animation: grow 1s ease forwards;
+        animation: grow 350ms ease forwards;
         opacity: 0;
     }
 
     .heart {
         position: absolute;
-        animation: grow 1s ease forwards;
+        animation: grow 700ms ease forwards;
         animation-name: grow, effect;
         top: 22px;
         left: 22px;
@@ -45,7 +45,7 @@
 
     .square {
         position: absolute;
-        animation: grow 1s ease forwards;
+        animation: grow 700ms ease forwards;
         animation-name: grow, effect;
         top: 22px;
         left: 22px;
@@ -55,7 +55,7 @@
 
     .circle {
         position: absolute;
-        animation: grow 1s ease forwards;
+        animation: grow 700ms ease forwards;
         animation-name: grow, effect;
         top: 22px;
         left: 22px;
