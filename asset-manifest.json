@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/react-portfolio/static/css/main.334e583d.css",
-    "main.js": "/react-portfolio/static/js/main.fa7ab7e9.js",
-    "static/media/color.png": "/react-portfolio/static/media/color.2953515535d31035c510.png",
-    "static/media/resume.pdf": "/react-portfolio/static/media/resume.ed778180ab3879c1c93d.pdf",
-    "index.html": "/react-portfolio/index.html",
-    "static/media/linkedin.svg": "/react-portfolio/static/media/linkedin.9e19f6e04cccb73a32e2467a57747ab2.svg",
-    "static/media/pacman.svg": "/react-portfolio/static/media/pacman.6ca165617d1b6575ba4050c208d77dec.svg",
-    "static/media/instagram.svg": "/react-portfolio/static/media/instagram.3aef284c8e8522011bc27607fe6c773f.svg",
-    "static/media/whatsapp.svg": "/react-portfolio/static/media/whatsapp.f44d37d4246f4a33d3746f3fdc1a7a7f.svg",
-    "static/media/github.svg": "/react-portfolio/static/media/github.f61708b2ab01c13c53e9244b80c8df7f.svg",
-    "static/media/gmail.svg": "/react-portfolio/static/media/gmail.21016f0fb7d69232ee6d7406fe951432.svg",
-    "main.334e583d.css.map": "/react-portfolio/static/css/main.334e583d.css.map",
-    "main.fa7ab7e9.js.map": "/react-portfolio/static/js/main.fa7ab7e9.js.map"
+    "main.css": "/static/css/main.334e583d.css",
+    "main.js": "/static/js/main.30307661.js",
+    "static/media/color.png": "/static/media/color.2953515535d31035c510.png",
+    "static/media/resume.pdf": "/static/media/resume.ed778180ab3879c1c93d.pdf",
+    "index.html": "/index.html",
+    "static/media/linkedin.svg": "/static/media/linkedin.9e19f6e04cccb73a32e2467a57747ab2.svg",
+    "static/media/pacman.svg": "/static/media/pacman.6ca165617d1b6575ba4050c208d77dec.svg",
+    "static/media/instagram.svg": "/static/media/instagram.3aef284c8e8522011bc27607fe6c773f.svg",
+    "static/media/whatsapp.svg": "/static/media/whatsapp.f44d37d4246f4a33d3746f3fdc1a7a7f.svg",
+    "static/media/github.svg": "/static/media/github.f61708b2ab01c13c53e9244b80c8df7f.svg",
+    "static/media/gmail.svg": "/static/media/gmail.21016f0fb7d69232ee6d7406fe951432.svg",
+    "main.334e583d.css.map": "/static/css/main.334e583d.css.map",
+    "main.30307661.js.map": "/static/js/main.30307661.js.map"
   },
   "entrypoints": [
     "static/css/main.334e583d.css",
-    "static/js/main.fa7ab7e9.js"
+    "static/js/main.30307661.js"
   ]
 }
