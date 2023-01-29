@@ -9,63 +9,6 @@
     gap: 50px;
     padding: 20px;
 
-    .profile-container {
-        @include flex-view(flex, column, center, center);
-        gap: 20px;
-        margin-bottom: 15px;
-
-        .avatar-container {
-            position: relative;
-            width: 125px;
-            aspect-ratio: 1/1.4;
-            border-radius: 0 0 100vh 100vh;
-            overflow: hidden;
-
-            .avatar-border {
-                position: absolute;
-                border: 2.5px solid $border-grey;
-                border-radius: 50%;
-                width: 120px;
-                aspect-ratio: 1;
-                bottom: 0;
-                right: 0;
-                transition: border 1000ms ease;
-
-                .avatar {
-                    object-fit: contain;
-                    position: absolute;
-                    bottom: -70px;
-                    left: -20px;
-                    width: 170px;
-                    height: 222px;
-                    transition: transform 450ms ease;
-                    transition: filter 800ms ease;
-                    filter: grayscale(1);
-                }
-            }
-
-            .avatar-border:hover {
-                border-color: $white;
-                box-shadow: 0 0 .2px $white,
-                    0 0 .2px $white,
-                    0 0 2px $primary-violet,
-                    0 0 0.8px $primary-violet,
-                    0 0 2.8px $primary-violet,
-                    inset 0 0 25px $primary-violet;
-
-                .avatar {
-                    transform: scale(1.1);
-                    bottom: -50px;
-                    filter: grayscale(0);
-                }
-            }
-        }
-
-        .title {
-            @include fonts($primary-violet, 28px, 500, italic);
-        }
-    }
-
     .nav-container {
         @include flex-view(flex, column, center, space-evenly);
         height: 40%;

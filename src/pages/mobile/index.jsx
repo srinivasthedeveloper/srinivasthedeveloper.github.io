@@ -2,6 +2,7 @@ import BottomNav from "components/Mobile/BottomNav";
 import { useState } from "react";
 import ProfileCard from "components/Web/ProfileCard";
 import styles from "./styles.module.scss";
+import MHome from "components/Mobile/Home";
 
 function Mobile() {
 
@@ -10,7 +11,7 @@ function Mobile() {
   return (
     <div className={styles['container']}>
       <div style={{display:'flex'}}>
-        {/* <ProfileCard activeNav={activeNav} setActiveNav={setActiveNav}/> */}
+        <MHome />
       </div>
       <BottomNav />
     </div>
