@@ -11,6 +11,7 @@ function Mobile() {
     <div className={styles['container']}>
       <div className={styles['sub-container']}>
         <MHome />
+        {/* <MHome /> */}
       </div>
       <BottomNav />
     </div>

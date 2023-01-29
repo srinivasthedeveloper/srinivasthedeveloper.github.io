@@ -7,8 +7,11 @@
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    padding: 10px;
-    min-height: 100vh;
+    padding: 20px 10px;
+    min-height: 100%;            /* fall-back */
+    min-height: -moz-available;
+    min-height: -webkit-fill-available;
+    min-height: fill-available;
     scroll-snap-align: start;
 
     .brief {
