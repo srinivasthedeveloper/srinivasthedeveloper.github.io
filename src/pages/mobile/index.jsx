@@ -2,6 +2,7 @@ import BottomNav from "components/Mobile/BottomNav";
 import { useState } from "react";
 import styles from "./styles.module.scss";
 import MHome from "components/Mobile/Home";
+import MAbout from "components/Mobile/About";
 
 function Mobile() {
 
@@ -10,10 +11,10 @@ function Mobile() {
   return (
     <div className={styles['container']}>
       <div className={styles['sub-container']}>
-        <MHome />
-        {/* <MHome /> */}
+        <MHome activeNav={activeNav} setActiveNav={setActiveNav} />
+        <MAbout activeNav={activeNav} setActiveNav={setActiveNav} />
       </div>
-      <BottomNav />
+      <BottomNav activeNav={activeNav} setActiveNav={setActiveNav} />
     </div>
   );
 }

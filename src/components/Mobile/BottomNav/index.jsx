@@ -12,40 +12,49 @@ import resumeFilled from "assets/image/bottomNav/resume-filled.png";
 import work from "assets/image/bottomNav/work.png";
 import workFilled from "assets/image/bottomNav/work-filled.png";
 
-export default function BottomNav(){
-    const [isActive,setActive] = useState('home');
-    return(
+const routes = [
+    {
+        name: 'Home',
+        icon: home,
+        filled: homeFilled
+    },
+    {
+        name: 'About',
+        icon: about,
+        filled: aboutFilled
+    },
+    {
+        name: 'Resume',
+        icon: resume,
+        filled: resumeFilled
+    },
+    {
+        name: 'Work',
+        icon: work,
+        filled: workFilled
+    },
+    {
+        name: 'Contact',
+        icon: contact,
+        filled: contactFilled
+    }
+];
+
+export default function BottomNav({ activeNav = "Home", setActiveNav = () => { } }) {
+    return (
         <div className={styles['container']}>
-            <div
-                onClick={()=>{setActive('home')}}
-                className={`${styles['item-container']} ${isActive==='home'?styles['active-nav']:''}`}>
-                <img src={isActive==='home'?homeFilled:home} alt=""/>
-                <span>Home</span>
-            </div>
-            <div
-                onClick={()=>{setActive('about')}}
-                className={`${styles['item-container']} ${isActive==='about'?styles['active-nav']:''}`}>
-                <img src={isActive==='about'?aboutFilled:about} alt=""/>
-                <span>about</span>
-            </div>
-            <div
-                onClick={()=>{setActive('resume')}}
-                className={`${styles['item-container']} ${isActive==='resume'?styles['active-nav']:''}`}>
-                <img src={isActive==='resume'?resumeFilled:resume} alt=""/>
-                <span>resume</span>
-            </div>
-            <div
-                onClick={()=>{setActive('work')}}
-                className={`${styles['item-container']} ${isActive==='work'?styles['active-nav']:''}`}>
-                <img src={isActive==='work'?workFilled:work} alt=""/>
-                <span>work</span>
-            </div>
-            <div
-                onClick={()=>{setActive('contact')}}
-                className={`${styles['item-container']} ${isActive==='contact'?styles['active-nav']:''}`}>
-                <img src={isActive==='contact'?contactFilled:contact} alt=""/>
-                <span>contact</span>
-            </div>
+            {routes.map((route, index) => (
+                <div
+                    key={`bottom-nav-${route.name}-${index}`}
+                    onClick={() => {
+                        setActiveNav(route.name);
+                        document.getElementById(`${route.name}-mview`).scrollIntoView();
+                    }}
+                    className={`${styles['item-container']} ${activeNav === route.name ? styles['active-nav'] : ''}`}>
+                    <img src={activeNav === route.name ? route.filled : route.icon} alt={route.name} />
+                    <span>{route.name}</span>
+                </div>
+            ))}
         </div>
     )
 }

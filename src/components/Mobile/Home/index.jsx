@@ -1,8 +1,10 @@
+import { useEffect, useRef } from "react";
+
 import ProfileAvatar from "components/Common/ProfileAvatar";
 import QuickLinks from "components/Common/QuickLinks";
 import TypeAnimation from "components/Common/TypeAnimation";
-import Home from "components/Web/Home";
 import styles from "./styles.module.scss";
+import useOnScreen from "Utils/useOnScreen";
 
 const textList = [
     `This is Srinivas K 👋`,
@@ -11,9 +13,19 @@ const textList = [
 ];
 const listLength = textList.length;
 
-export default function MHome() {
+export default function MHome({ activeNav, setActiveNav = () => { } }) {
+
+    const homeRef = useRef();
+    const isVisible = useOnScreen(homeRef);
+
+    useEffect(() => {
+        if (isVisible && activeNav !== 'Home') {
+            setActiveNav("Home");
+        }
+    }, [isVisible])
+
     return (
-        <div className={styles["container"]}>
+        <div className={styles["container"]} ref={homeRef} id={'Home-mview'}>
             <ProfileAvatar showTitle={false} />
             <TypeAnimation textList={textList} listLength={listLength} />
             <span className={styles['brief']}>
