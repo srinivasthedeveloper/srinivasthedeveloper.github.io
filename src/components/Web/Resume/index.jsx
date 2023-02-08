@@ -35,9 +35,13 @@ export default function Resume({
             /Windows Phone/i,
             /BlackBerry/i,
         ];
-        return mobileOs.some((item) => {
+        const webkitVer = parseInt(/WebKit\/([0-9]+)|$/.exec(navigator?.appVersion)[1], 10); // also matches AppleWebKit
+        const isGoogle = webkitVer && navigator?.vendor.indexOf('Google') === 0;  // Also true for Opera Mobile and maybe others
+        const isAndroid = isGoogle && navigator?.userAgent.indexOf('Android') > 0;  // Careful - Firefox and Windows Mobile also have Android in user agent
+        const androidDesktopMode = !isAndroid && isGoogle && (navigator?.platform?.indexOf('Linux a') === 0) && 'ontouchstart' in document?.documentElement;
+        return androidDesktopMode || (mobileOs.some((item) => {
             return navigator.userAgent.match(item);
-        });
+        }));
     }
 
     return (
@@ -73,7 +77,7 @@ export default function Resume({
                 <a href={resumePdf}
                     target="_blank" rel="noreferrer"
                     title="download resume"
-                    download={true}
+                    download="Srinivas_K (The Developer) Resume.pdf"
                     className={`${styles['download-btn']}`}
                 >Download Resume</a>
             </div>
