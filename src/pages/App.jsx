@@ -8,6 +8,7 @@ import PreLoader from "components/Common/PreLoader";
 import Mobile from "./mobile";
 import Web from "./web/Index";
 import ClickAnimation from "components/Common/ClickAnimation";
+import isMobileOS from "Utils/AndroidDesktopViewFinder";
 
 ReactGA.initialize([
   {
@@ -23,32 +24,14 @@ function App() {
   const [isMobielView, setisMobielView] = useState(false);
   const [isMouseTrailDisabled, setMouseTrailState] = useState(false);
   const [isLoaded, setLoaded] = useState(false);
-
-  const isMobileOS = () => {
-    const mobileOs = [
-      /Android/i,
-      /webOS/i,
-      /iPhone/i,
-      /iPad/i,
-      /iPod/i,
-      /Windows Phone/i,
-      /BlackBerry/i,
-    ];
-    const webkitVer = parseInt(/WebKit\/([0-9]+)|$/.exec(navigator?.appVersion)[1], 10); // also matches AppleWebKit
-    const isGoogle = webkitVer && navigator?.vendor.indexOf('Google') === 0;  // Also true for Opera Mobile and maybe others
-    const isAndroid = isGoogle && navigator?.userAgent.indexOf('Android') > 0;  // Careful - Firefox and Windows Mobile also have Android in user agent
-    const androidDesktopMode = !isAndroid && isGoogle && (navigator?.platform?.indexOf('Linux a') === 0) && 'ontouchstart' in document?.documentElement;
-    return androidDesktopMode || (mobileOs.some((item) => {
-        return navigator.userAgent.match(item);
-    }));
-  }
+  const [isMobileDevice, setMobileDevice] = useState(false);
 
   const onWindowResize = () => {
     if ((window.innerWidth <= 768)) {// navigator.userAgentData.mobile //to detect is it from mobile or web 
       setMouseTrailState(true);
       return setisMobielView(true);
     } else {
-      if (navigator?.userAgentData?.mobile || isMobileOS()) {
+      if (navigator?.userAgentData?.mobile || isMobileDevice) {
         setMouseTrailState(true);
       } else {
         setMouseTrailState(false);
@@ -80,7 +63,6 @@ function App() {
   useEffect(()=>{
 
     function onPageLeave(e){
-      console.log("pageleave",e,document.hidden);
       if(document.hidden){
         document.title="Come Back :("
       } else {
@@ -90,6 +72,12 @@ function App() {
     window.addEventListener('visibilitychange',onPageLeave);
     return ()=> window.removeEventListener('visibilitychange',onPageLeave)
   })
+
+  useEffect(()=>{
+    const isMobileDesktopView = isMobileOS();
+    setMobileDevice(isMobileDesktopView);
+    setMouseTrailState(isMobileDesktopView);
+  },[navigator?.userAgent])
 
   return (
     <>
