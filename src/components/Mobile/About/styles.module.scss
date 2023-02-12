@@ -16,6 +16,7 @@
     .header{
         height: 15%;
         .title{
+            font-size: 1.2rem;
             @include fonts($primary-violet,clamp(20px,5vw,25px),500);
         }
     }

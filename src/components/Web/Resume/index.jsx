@@ -1,9 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import useOnScreen from "Utils/useOnScreen";
 import styles from "./styles.module.scss";
 import resumePdf from "assets/pdf/resume.pdf";
 import page1 from "assets/image/resume/1.png";
 import page2 from "assets/image/resume/2.png";
+import isMobileOS from "Utils/AndroidDesktopViewFinder";
 
 export default function Resume({
     activeNav = "",
@@ -12,6 +13,7 @@ export default function Resume({
 }) {
     const resumeRef = useRef();
     const isVisible = useOnScreen(resumeRef);
+    const [isMobileDevice,setMobileDevice] = useState(false);
 
     useEffect(() => {
         if (isVisible && activeNav !== 'Resume') {
@@ -23,28 +25,19 @@ export default function Resume({
         if (activeNav === 'Resume') {
             // resumeRef.current.scrollIntoView();
         }
-    }, [activeNav])
+    }, [activeNav]);
 
-    const isMobileOS = () => {
-        const mobileOs = [
-            /Android/i,
-            /webOS/i,
-            /iPhone/i,
-            /iPad/i,
-            /iPod/i,
-            /Windows Phone/i,
-            /BlackBerry/i,
-        ];
-        return mobileOs.some((item) => {
-            return navigator.userAgent.match(item);
-        });
-    }
+    useEffect(()=>{
+        setMobileDevice(isMobileOS());
+    },[navigator?.userAgent])
+
+
 
     return (
         <section className={`${styles['container']}`} ref={resumeRef} id={'resume-view'}>
             <span className={`${styles['header']}`}>Resume</span>
             <div className={`${styles['resume-container']}`}>
-                {isMobileOS() ? (
+                {isMobileDevice ? (
                     <>
                         <img
                             src={page1}
@@ -73,7 +66,7 @@ export default function Resume({
                 <a href={resumePdf}
                     target="_blank" rel="noreferrer"
                     title="download resume"
-                    download={true}
+                    download="Srinivas_K (The Developer) Resume.pdf"
                     className={`${styles['download-btn']}`}
                 >Download Resume</a>
             </div>
