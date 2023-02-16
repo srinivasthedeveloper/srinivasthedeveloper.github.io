@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState, useId } from "react";
+
 import ReactGA from "react-ga4";
+import * as amplitude from '@amplitude/analytics-browser';
 
 import MouseTrail from "components/Common/MouseTrail";
 import PreLoader from "components/Common/PreLoader";
@@ -82,35 +84,9 @@ function App() {
   },[navigator?.userAgent])
 
   useEffect(()=>{
-    const obj = {
-      visitor: {
-        id: uniqueUserId,
-          email:        "Recommended if using Pendo Feedback, or NPS Email",
-          full_name:    "Recommended if using Pendo Feedback",
-          role:        " Optional",
-
-          // You can add any additional visitor level key-values here,
-          // as long as it's not one of the above reserved names.
-      },
-      account: {
-        id: uniqueUserId,
-        name:         "Optional",
-        is_paying:    "Recommended if using Pendo Feedback",
-        monthly_value:"Recommended if using Pendo Feedback",
-        planLevel:    "Optional",
-        planPrice:    "Optional",
-        creationDate: "Optional",
-
-        // You can add any additional account level key-values here,
-        // as long as it's not one of the above reserved names.
-      }
-    }
-    console.log(obj,"setUserInfosetUserInfo")
-    if(window.pendo){
-      window.pendo?.initialize(obj);
-      // window.pendo?.validateInstall();
-    }
-  },[window.pendo])
+    amplitude.init('16954fcd9cd4a8b30ac9fc8826a99244', undefined, { defaultTracking: { sessions: true, pageViews: true, formInteractions: true, fileDownloads: true }});
+    amplitude.track('Page Loaded');
+  },[])
 
   return (
     <>
