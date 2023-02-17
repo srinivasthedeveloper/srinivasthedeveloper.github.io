@@ -23,7 +23,7 @@ ReactGA.initialize([
 ]);
 
 function App() {
-  const [isMobielView, setisMobielView] = useState(false);
+  const [isMobileView, setisMobileView] = useState(false);
   const [isMouseTrailDisabled, setMouseTrailState] = useState(false);
   const [isLoaded, setLoaded] = useState(false);
   const [isMobileDevice, setMobileDevice] = useState(false);
@@ -33,7 +33,7 @@ function App() {
   const onWindowResize = () => {
     if ((window.innerWidth <= 768)) {// navigator.userAgentData.mobile //to detect is it from mobile or web 
       setMouseTrailState(true);
-      return setisMobielView(true);
+      return setisMobileView(true);
     } else {
       if (navigator?.userAgentData?.mobile || isMobileDevice) {
         setMouseTrailState(true);
@@ -41,7 +41,7 @@ function App() {
         setMouseTrailState(false);
       }
     }
-    return setisMobielView(false);
+    return setisMobileView(false);
   };
 
   useEffect(() => {
@@ -64,36 +64,45 @@ function App() {
       })
   }, [])
 
-  useEffect(()=>{
+  useEffect(() => {
 
-    function onPageLeave(e){
-      if(document.hidden){
-        document.title="Come Back :("
+    function onPageLeave(e) {
+      if (document.hidden) {
+        document.title = "Come Back :("
       } else {
         document.title = "Srinivas The Developer Personal Portfolio";
       }
     }
-    window.addEventListener('visibilitychange',onPageLeave);
-    return ()=> window.removeEventListener('visibilitychange',onPageLeave)
+    window.addEventListener('visibilitychange', onPageLeave);
+    return () => window.removeEventListener('visibilitychange', onPageLeave)
   })
 
-  useEffect(()=>{
+  useEffect(() => {
     const isMobileDesktopView = isMobileOS();
     setMobileDevice(isMobileDesktopView);
     setMouseTrailState(isMobileDesktopView);
-  },[navigator?.userAgent])
+  }, [navigator?.userAgent])
 
-  useEffect(()=>{
-    amplitude.init('16954fcd9cd4a8b30ac9fc8826a99244', undefined, { defaultTracking: { sessions: true, pageViews: true, formInteractions: true, fileDownloads: true }});
-    amplitude.track('Page Loaded');
-  },[])
+  useEffect(() => {
+    if (isLoaded) {
+      amplitude.init('16954fcd9cd4a8b30ac9fc8826a99244', undefined, { defaultTracking: { sessions: true, pageViews: true, formInteractions: true, fileDownloads: true } });
+      amplitude.track('Page Loaded', {
+        url: window.location.href ?? "not-set",
+        userId: uniqueUserId ?? "not-set",
+        isMobileView: isMobileView ?? "not-set",
+        pageTitle: document.title ?? "not-set",
+        isMouseTrailDisabled: isMouseTrailDisabled ?? "not-set",
+        currentTimeStamp: currentTimeStamp ?? "not-set",
+      });
+    }
+  }, [isLoaded])
 
   return (
     <>
       {isLoaded ? <>
         {isMouseTrailDisabled ? null : <MouseTrail />}
         <ClickAnimation />
-        {isMobielView ? <Mobile /> : <Web />}
+        {isMobileView ? <Mobile /> : <Web />}
       </> : <PreLoader />}
     </>
   );
