@@ -12,6 +12,15 @@
         white-space: nowrap;
         overflow: hidden;
         display: flex;
+        background: $primary-violet;
+        background: linear-gradient(to right, $primary-violet, $primary-pink);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        span {
+            -webkit-text-fill-color: $primary-violet;
+        }
     }
 
     .write-animate {

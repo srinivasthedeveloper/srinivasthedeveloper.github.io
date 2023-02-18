@@ -4,9 +4,9 @@ import useOnScreen from "Utils/useOnScreen";
 import styles from "./styles.module.scss";
 
 const textList = [
-    `This is Srinivas K 👋`,
-    `I'm a Software Developer🧑‍💻`,
-    `I Creates 🕸️ & 📱 apps.`,
+    `<div>This is Srinivas K<span> 👋&nbsp;</span></div>`,
+    `<div>I'm a Software Developer<span> 🧑‍💻</span></div>`,
+    `<div>I Creates <span>🕸️</span>&nbsp;&nbsp;&amp;&nbsp;<span>📱</span> apps.</div>`,
 ];
 const listLength = textList.length;
 

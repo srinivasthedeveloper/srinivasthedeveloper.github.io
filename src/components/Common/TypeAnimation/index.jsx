@@ -25,7 +25,7 @@ export default function TypeAnimation({ textList = [], listLength = 0 }) {
 
     return (
         Boolean(listLength) ? (<div className={styles['about-text']}>
-            <span className={`${styles['animate-text']} ${writeText ? styles['write-animate'] : styles['clear-animate']}`}>{text}</span>
+            <span className={`${styles['animate-text']} ${writeText ? styles['write-animate'] : styles['clear-animate']}`} dangerouslySetInnerHTML={{__html:text}} />
             <span className={styles["blinker"]}>|</span>
         </div>) : null
     )
