@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { TrackEvent } from "Utils/DataTracking";
 import styles from './styles.module.scss';
 
 export default function ClickAnimation() {
@@ -14,6 +15,7 @@ export default function ClickAnimation() {
             hiderTimeout = setTimeout(() => {
                 currentCursorClone.remove();
             }, 1100);
+            TrackEvent({element:event})
         }
         window.addEventListener("click", handleClick);
         return () => window.removeEventListener("click", handleClick);

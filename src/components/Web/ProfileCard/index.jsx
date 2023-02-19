@@ -31,10 +31,11 @@ export default function ProfileCard({
                 {routes.map((route, index) => (
                     <div
                         key={`right-nav-container-${index}`}
-                        className={`${styles['title-container']}`}
+                        className={`${styles['title-container']} event-track`}
+                        data-event_data = {JSON.stringify({name:route+"-click",data:{activeNav}})}
                         onClick={() => {
                             document.getElementById((route.toLocaleLowerCase())+"-view").scrollIntoView();
-                            setActiveNav(route);
+                            // setActiveNav(route);
                         }}
                     >
                         <span

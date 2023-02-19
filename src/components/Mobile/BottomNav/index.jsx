@@ -47,10 +47,11 @@ export default function BottomNav({ activeNav = "Home", setActiveNav = () => { }
                 <div
                     key={`bottom-nav-${route.name}-${index}`}
                     onClick={() => {
-                        setActiveNav(route.name);
                         document.getElementById(`${route.name}-mview`).scrollIntoView();
+                        // setActiveNav(route.name);
                     }}
-                    className={`${styles['item-container']} ${activeNav === route.name ? styles['active-nav'] : ''}`}>
+                    data-event_data = {JSON.stringify({name:(route?.name)+"-mobile-click",data:{activeNav}})}
+                    className={`${styles['item-container']} ${activeNav === route.name ? styles['active-nav'] : ''} event-track`}>
                     <img src={activeNav === route.name ? route.filled : route.icon} alt={route.name} />
                     <span>{route.name}</span>
                 </div>
