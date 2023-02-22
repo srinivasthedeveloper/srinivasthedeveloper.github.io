@@ -25,8 +25,10 @@
                 padding: 5px;
 
                 &:is(.active) {
-                    background: linear-gradient(to right, $primary-violet, $primary-pink);
                     background-clip: text;
+                    background: $primary-violet;
+                    background: linear-gradient(to right, $primary-violet, $primary-pink);
+                    -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                 }
             }

@@ -28,6 +28,11 @@
 
         .reach-me{
             @include fonts($primary-violet, max(1.25rem, 1.25vw), 500, normal, max(30px, 2.5vw));
+            background: $primary-violet;
+            background: linear-gradient(to right, $primary-violet, $primary-pink);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
             border-bottom: 1px dashed $white;
             width: fit-content;
             align-self: center;

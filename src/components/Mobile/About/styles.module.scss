@@ -18,6 +18,14 @@
         .title{
             font-size: 1.2rem;
             @include fonts($primary-violet,clamp(20px,5vw,25px),500);
+            background: $primary-violet;
+            background: linear-gradient(to right, $primary-violet, $primary-pink);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            span{
+                -webkit-text-fill-color: $primary-violet;
+            }
         }
     }
     .section{
