@@ -28,16 +28,16 @@ const routes = [
         icon: resume,
         filled: resumeFilled
     },
-    {
-        name: 'Work',
-        icon: work,
-        filled: workFilled
-    },
-    {
-        name: 'Contact',
-        icon: contact,
-        filled: contactFilled
-    }
+    // {
+    //     name: 'Work',
+    //     icon: work,
+    //     filled: workFilled
+    // },
+    // {
+    //     name: 'Contact',
+    //     icon: contact,
+    //     filled: contactFilled
+    // }
 ];
 
 export default function BottomNav({ activeNav = "Home", setActiveNav = () => { } }) {
