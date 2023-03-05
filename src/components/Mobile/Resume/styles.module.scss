@@ -7,11 +7,12 @@
     align-items: center;
     gap: 20px;
     padding: 20px;
+    padding-bottom: 30px;
     min-height: 100%;               /* fall-back */
     min-height: -moz-available;
     min-height: -webkit-fill-available;
     min-height: fill-available;
-    scroll-snap-align: start;
+    scroll-snap-align: end;
 
     .header {
         font-size: 1.2rem;
