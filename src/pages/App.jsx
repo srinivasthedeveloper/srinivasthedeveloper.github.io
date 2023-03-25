@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useId } from "react";
 import ReactGA from "react-ga4";
 
 import MouseTrail from "components/Common/MouseTrail";
@@ -25,6 +25,8 @@ function App() {
   const [isMouseTrailDisabled, setMouseTrailState] = useState(false);
   const [isLoaded, setLoaded] = useState(false);
   const [isMobileDevice, setMobileDevice] = useState(false);
+  const uniqueUserId = useId();
+  const currentTimeStamp = Date?.now();
 
   const onWindowResize = () => {
     if ((window.innerWidth <= 768)) {// navigator.userAgentData.mobile //to detect is it from mobile or web 
@@ -78,6 +80,37 @@ function App() {
     setMobileDevice(isMobileDesktopView);
     setMouseTrailState(isMobileDesktopView);
   },[navigator?.userAgent])
+
+  useEffect(()=>{
+    const obj = {
+      visitor: {
+        id: uniqueUserId,
+          email:        "Recommended if using Pendo Feedback, or NPS Email",
+          full_name:    "Recommended if using Pendo Feedback",
+          role:        " Optional",
+
+          // You can add any additional visitor level key-values here,
+          // as long as it's not one of the above reserved names.
+      },
+      account: {
+        id: uniqueUserId,
+        name:         "Optional",
+        is_paying:    "Recommended if using Pendo Feedback",
+        monthly_value:"Recommended if using Pendo Feedback",
+        planLevel:    "Optional",
+        planPrice:    "Optional",
+        creationDate: "Optional",
+
+        // You can add any additional account level key-values here,
+        // as long as it's not one of the above reserved names.
+      }
+    }
+    console.log(obj,"setUserInfosetUserInfo")
+    if(window.pendo){
+      window.pendo?.initialize(obj);
+      // window.pendo?.validateInstall();
+    }
+  },[window.pendo])
 
   return (
     <>
