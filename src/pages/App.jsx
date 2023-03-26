@@ -1,6 +1,8 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useId } from "react";
+
 import ReactGA from "react-ga4";
+import * as amplitude from '@amplitude/analytics-browser';
 
 import MouseTrail from "components/Common/MouseTrail";
 import PreLoader from "components/Common/PreLoader";
@@ -25,6 +27,8 @@ function App() {
   const [isMouseTrailDisabled, setMouseTrailState] = useState(false);
   const [isLoaded, setLoaded] = useState(false);
   const [isMobileDevice, setMobileDevice] = useState(false);
+  const uniqueUserId = useId();
+  const currentTimeStamp = Date?.now();
 
   const onWindowResize = () => {
     if ((window.innerWidth <= 768)) {// navigator.userAgentData.mobile //to detect is it from mobile or web 
@@ -78,6 +82,11 @@ function App() {
     setMobileDevice(isMobileDesktopView);
     setMouseTrailState(isMobileDesktopView);
   },[navigator?.userAgent])
+
+  useEffect(()=>{
+    amplitude.init('16954fcd9cd4a8b30ac9fc8826a99244', undefined, { defaultTracking: { sessions: true, pageViews: true, formInteractions: true, fileDownloads: true }});
+    amplitude.track('Page Loaded');
+  },[])
 
   return (
     <>
