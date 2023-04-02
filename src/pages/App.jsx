@@ -29,6 +29,8 @@ function App() {
   const [isMobileDevice, setMobileDevice] = useState(false);
   const uniqueUserId = useId();
   const currentTimeStamp = Date?.now();
+  const [isAdmin,setAdmin] = useState(false);
+  const adminData = localStorage.getItem('abra-kadabra');
 
   const onWindowResize = () => {
     if ((window.innerWidth <= 768)) {// navigator.userAgentData.mobile //to detect is it from mobile or web 
@@ -85,7 +87,10 @@ function App() {
 
   useEffect(() => {
     if (isLoaded) {
-      amplitude.init('16954fcd9cd4a8b30ac9fc8826a99244', undefined, { defaultTracking: { sessions: true, pageViews: true, formInteractions: true, fileDownloads: true } });
+      amplitude.init('16954fcd9cd4a8b30ac9fc8826a99244', undefined, { 
+        defaultTracking: { sessions: true, pageViews: true, formInteractions: true, fileDownloads: true },
+        logLevel: isAdmin ? amplitude.Types.LogLevel.Debug : amplitude.Types.LogLevel.None,
+      });
       amplitude.track('Page Loaded', {
         url: window.location.href ?? "not-set",
         userId: uniqueUserId ?? "not-set",
@@ -96,6 +101,14 @@ function App() {
       });
     }
   }, [isLoaded])
+
+  useEffect(()=>{
+    try{
+      setAdmin(atob(adminData)==='alikazam');
+    }catch(e){
+      setAdmin(false);
+    }
+  },[adminData])
 
   return (
     <>
