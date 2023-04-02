@@ -26,15 +26,16 @@ export default function ProfileCard({
     return (
         <div className={styles['container']}>
             <ProfileAvatar />
-            
+
             <div className={styles['nav-container']}>
                 {routes.map((route, index) => (
                     <div
                         key={`right-nav-container-${index}`}
                         className={`${styles['title-container']} event-track`}
-                        data-event_data = {JSON.stringify({name:route+"-click",data:{activeNav}})}
-                        onClick={() => {
-                            document.getElementById((route.toLocaleLowerCase())+"-view").scrollIntoView();
+                        data-event_data={JSON.stringify({ name: route + "-click", data: { activeNav } })}
+                        onClick={(element) => {
+                            document.getElementById((route.toLocaleLowerCase()) + "-view").scrollIntoView();
+                            randomiseCharactersEffect(element, route);
                             // setActiveNav(route);
                         }}
                     >
@@ -46,4 +47,26 @@ export default function ProfileCard({
             <QuickLinks />
         </div>
     )
+
+    function randomiseCharactersEffect(element = null, originalName) {
+        console.log(element.target.innerText ,  originalName);
+        if (element) {
+            // const alphabets = ['䷀', '䷁', '䷂', '䷃', '䷄', '䷅', '䷆', '䷇', '䷈', '䷉', '䷊', '䷋', '䷌', '䷍', '䷎', '䷏', '䷐', '䷑', '䷒', '䷓', '䷔', '䷕', '䷖', '䷗', '䷘', '䷙'];
+            const alphabets = "abcdefghijklmnopqrstuvwxyz".split('');
+            let iterator = 0;
+            let interval=null;
+            clearInterval(interval);
+            if(!interval){
+                interval = setInterval(() => {
+                    element.target.innerText = originalName.split('').map((char,index) => index<iterator ? char : alphabets[Math.ceil(Math.random() * 26)]).join('');
+                    iterator += 1/5;
+                    if (iterator > originalName.length && interval) {
+                        clearInterval(interval);
+                        interval=null;
+                        element.target.innerText = originalName;
+                    }
+                }, 30)
+            }
+        }
+    }
 }

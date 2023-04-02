@@ -23,13 +23,21 @@
             .title {
                 @include fonts($white, 22px, 500);
                 padding: 5px;
+
+                &:is(.active) {
+                    background-clip: text;
+                    background: $primary-violet;
+                    background: linear-gradient(to right, $primary-violet, $primary-pink);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
             }
 
             .title::after {
                 margin-top: 15px;
                 display: block;
                 content: '';
-                border-bottom: 3px solid $primary-violet;
+                border-bottom: 3px solid $primary-pink;
                 box-shadow: 0 0 .2px $white,
                     0 0 3px $primary-violet,
                     0 0 0.8px $primary-violet,

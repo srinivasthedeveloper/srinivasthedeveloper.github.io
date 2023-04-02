@@ -18,7 +18,7 @@ export default function MAbout({ activeNav, setActiveNav = () => { } }) {
     return (
         <div className={styles['container']} ref={aboutRef} id={'About-mview'}>
             <div className={styles['header']}>
-                <span className={styles['title']}>Hello Buddy...👋</span>
+                <span className={styles['title']}>Hello Buddy...<span>👋</span></span>
             </div>
             <div className={styles['section']}>
                 <span className={styles['title']}>I'm Srinivas.K (The Developer)</span>

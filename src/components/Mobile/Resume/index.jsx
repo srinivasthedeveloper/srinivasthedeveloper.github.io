@@ -38,7 +38,7 @@ export default function MResume({ activeNav, setActiveNav = () => { } }) {
             </div>
 
             <div className={styles['button-container']}>
-                <a href={"resumePdf"}
+                <a href={resumePdf}
                     target="_blank" rel="noreferrer"
                     title="download resume"
                     download="Srinivas_K (The Developer) Resume.pdf"
