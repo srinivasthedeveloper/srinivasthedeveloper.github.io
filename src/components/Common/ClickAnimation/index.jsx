@@ -1,29 +1,30 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { TrackEvent } from "Utils/DataTracking";
 import styles from './styles.module.scss';
 
 export default function ClickAnimation() {
     const clickRef = useRef();
+    const mouseOffset = 60;
 
     useEffect(() => {
-        let hiderTimeout;
         const handleClick = (event) => {
-            clickRef.current.style.top = (event.clientY - 25) + "px";
-            clickRef.current.style.left = (event.clientX - 25) + "px";
-            let currentCursorClone = clickRef.current.cloneNode(true);
+            const { clientX, clientY } = event;
+            clickRef.current.style.transform = `translate(${clientX + mouseOffset}px, ${clientY + mouseOffset}px)`;
+            const currentCursorClone = clickRef.current.cloneNode(true);
             document.querySelector('#cursor').appendChild(currentCursorClone);
-            hiderTimeout = setTimeout(() => {
+            setTimeout(() => {
                 currentCursorClone.remove();
             }, 1100);
-            TrackEvent({element:event})
-        }
+            TrackEvent({ element: event });
+        };
+
         window.addEventListener("click", handleClick);
         return () => window.removeEventListener("click", handleClick);
     }, []);
 
     return (
         <div id="cursor" className={styles['cursor-div']}>
-            <div className={`${styles['container']}`} ref={clickRef}>
+            <div className={styles['container']} ref={clickRef}>
                 <div className={styles['outer-circle']} />
                 <div className={styles['inner-circle']} />
                 <span className={styles['heart']}>💜</span>
@@ -31,5 +32,5 @@ export default function ClickAnimation() {
                 <span className={styles['square']}>🟪</span>
             </div>
         </div>
-    )
+    );
 }
