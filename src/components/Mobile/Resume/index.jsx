@@ -4,7 +4,6 @@ import useOnScreen from "Utils/useOnScreen";
 import styles from "./styles.module.scss";
 import resumePdf from "assets/pdf/resume.pdf";
 import page1 from "assets/image/resume/1.png";
-import page2 from "assets/image/resume/2.png";
 
 
 export default function MResume({ activeNav, setActiveNav = () => { } }) {
@@ -28,12 +27,6 @@ export default function MResume({ activeNav, setActiveNav = () => { } }) {
                     loading="eager"
                     alt={"Resume Page 1"}
                     title={"Resume Page 1"}
-                />
-                <img
-                    src={page2}
-                    loading="eager"
-                    alt={"Resume Page 2"}
-                    title={"Resume Page 2"}
                 />
             </div>
 

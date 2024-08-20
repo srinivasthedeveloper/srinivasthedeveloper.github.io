@@ -15,9 +15,9 @@ function Web() {
             <div className={styles['sub-container']}>
                 <Home activeNav={activeNav} setActiveNav={setActiveNav}/>
                 <About activeNav={activeNav} setActiveNav={setActiveNav}/>
-                <Work activeNav={activeNav} setActiveNav={setActiveNav}/>
+                {/* <Work activeNav={activeNav} setActiveNav={setActiveNav}/> */}
                 <Resume activeNav={activeNav} setActiveNav={setActiveNav}/>
-                <Contact activeNav={activeNav} setActiveNav={setActiveNav}/>
+                {/* <Contact activeNav={activeNav} setActiveNav={setActiveNav}/> */}
             </div>
             <ProfileCard activeNav={activeNav} setActiveNav={setActiveNav} />
         </div>

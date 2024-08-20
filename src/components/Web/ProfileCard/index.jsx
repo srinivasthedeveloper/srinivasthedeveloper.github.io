@@ -16,11 +16,11 @@ export default function ProfileCard({
     const routes = [
         'Home',
         'About',
-        'Work',
+        // 'Work',
         'Resume',
         // 'Portfolio',
         // 'Projects',
-        'Contact',
+        // 'Contact',
     ]
 
     return (

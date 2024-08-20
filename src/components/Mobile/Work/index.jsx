@@ -2,9 +2,6 @@ import { useEffect, useRef } from "react";
 
 import useOnScreen from "Utils/useOnScreen";
 import styles from "./styles.module.scss";
-import resumePdf from "assets/pdf/resume.pdf";
-import page1 from "assets/image/resume/1.png";
-import page2 from "assets/image/resume/2.png";
 
 
 export default function MWork({ activeNav, setActiveNav = () => { } }) {

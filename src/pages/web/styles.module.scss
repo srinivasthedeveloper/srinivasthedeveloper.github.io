@@ -15,7 +15,7 @@
         overflow-y: auto;
         padding: 20px;
         scroll-behavior: smooth;
-        scroll-snap-type: y proximity;
+        // scroll-snap-type: y proximity;
         -ms-overflow-style: none;  /* Internet Explorer 10+ */
         scrollbar-width: none;  /* Firefox */
         &::-webkit-scrollbar { 
