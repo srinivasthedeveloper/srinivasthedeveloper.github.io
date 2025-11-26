@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.0c1ceeaf.css",
-    "main.js": "/static/js/main.dc53bab9.js",
-    "static/media/1.png": "/static/media/1.11a1148de42a760c1a6e.png",
+    "main.css": "/static/css/main.f2231bf5.css",
+    "main.js": "/static/js/main.0558cfe7.js",
+    "static/media/1.png": "/static/media/1.86ff8ca796652d48e44e.png",
     "static/media/color.png": "/static/media/color.2953515535d31035c510.png",
-    "static/media/resume.pdf": "/static/media/resume.bb3bd5325eaa2406daea.pdf",
+    "static/media/resume.pdf": "/static/media/resume.4dc70ac2f0b5d64a625f.pdf",
     "index.html": "/index.html",
     "static/media/linkedin.svg": "/static/media/linkedin.9e19f6e04cccb73a32e2467a57747ab2.svg",
     "static/media/pacman.svg": "/static/media/pacman.6ca165617d1b6575ba4050c208d77dec.svg",
@@ -12,11 +12,11 @@
     "static/media/whatsapp.svg": "/static/media/whatsapp.f44d37d4246f4a33d3746f3fdc1a7a7f.svg",
     "static/media/github.svg": "/static/media/github.f61708b2ab01c13c53e9244b80c8df7f.svg",
     "static/media/gmail.svg": "/static/media/gmail.21016f0fb7d69232ee6d7406fe951432.svg",
-    "main.0c1ceeaf.css.map": "/static/css/main.0c1ceeaf.css.map",
-    "main.dc53bab9.js.map": "/static/js/main.dc53bab9.js.map"
+    "main.f2231bf5.css.map": "/static/css/main.f2231bf5.css.map",
+    "main.0558cfe7.js.map": "/static/js/main.0558cfe7.js.map"
   },
   "entrypoints": [
-    "static/css/main.0c1ceeaf.css",
-    "static/js/main.dc53bab9.js"
+    "static/css/main.f2231bf5.css",
+    "static/js/main.0558cfe7.js"
   ]
 }
